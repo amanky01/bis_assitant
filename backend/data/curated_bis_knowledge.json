@@ -1,0 +1,74 @@
+[
+  {
+    "title": "ISI Mark — Definition and Purpose",
+    "content": "The ISI mark is a certification mark for industrial products in India, administered by the Bureau of Indian Standards (BIS). It indicates that a product conforms to an Indian Standard (IS) developed by BIS. The mark is part of BIS Scheme-I for compulsory product certification, ensuring quality and safety for consumers. Products under compulsory certification (e.g. cement, LPG cylinders, electrical cables, helmets, toys) must carry the ISI mark to be sold in India.",
+    "source": "https://www.bis.gov.in/product-certification/",
+    "category": "marks",
+    "is_number": null,
+    "tags": ["isi", "mark", "certification", "compulsory", "bis"]
+  },
+  {
+    "title": "How to Verify an ISI Mark — CM/L Number",
+    "content": "To verify an ISI mark, you need the CM/L (Certification Mark Licence) number printed on the product (format: CM/L-XXXXXXX, 7–8 digits). This number can be verified against the BIS database at manakonline.in. Enter the CM/L number on the Manak Online portal to check manufacturer name, IS standard, product description, validity dates, and current licence status. If the number is not found or the licence is cancelled/expired, the mark may be fake.",
+    "source": "https://www.manakonline.in/MANAK/home",
+    "category": "marks",
+    "is_number": null,
+    "tags": ["isi", "cm/l", "cml", "verify", "manakonline"]
+  },
+  {
+    "title": "Hallmark — Definition and Purpose",
+    "content": "A hallmark is an official mark used to guarantee the purity or fineness of precious metal articles, such as gold jewellery. The Bureau of Indian Standards (BIS) operates a Hallmarking Scheme in India to protect consumers against adulteration and ensure manufacturers maintain legal standards of fineness. Hallmarking is done as per Indian Standard IS 15820. Since July 2021, hallmarked gold jewellery carries the BIS mark, purity (e.g. 22K916, 18K750), and a six-digit alphanumeric HUID (Hallmark Unique Identification) code.",
+    "source": "https://www.bis.gov.in/hallmarking-overview/",
+    "category": "hallmarking",
+    "is_number": "IS 15820",
+    "tags": ["hallmark", "gold", "jewellery", "huid", "purity"]
+  },
+  {
+    "title": "HUID — Hallmark Unique Identification",
+    "content": "HUID (Hallmark Unique Identification) is a six-digit alphanumeric code stamped on hallmarked gold jewellery/artefacts in India. It is mandatory since July 2021. Consumers can verify a HUID using the BIS HUID verification portal to confirm the authenticity of the hallmark and see details such as purity, assaying centre, and jeweller. Verification helps detect fake or tampered hallmarks.",
+    "source": "https://www.bis.gov.in/hallmarking-overview/",
+    "category": "hallmarking",
+    "is_number": null,
+    "tags": ["huid", "hallmark", "gold", "verify"]
+  },
+  {
+    "title": "CRS — Compulsory Registration Scheme",
+    "content": "The Compulsory Registration Scheme (CRS) of BIS applies to certain electronics and IT products (e.g. mobile phones, LED lamps, laptops, power adapters). Products must be registered and carry an R-number (format R-XXXXXXXX, 8 digits). The R-number can be verified on the CRS portal crsbis.in. Only BIS-registered products can be sold in India under the order.",
+    "source": "https://www.bis.gov.in/crs/",
+    "category": "crs",
+    "is_number": null,
+    "tags": ["crs", "r-number", "electronics", "registration"]
+  },
+  {
+    "title": "BIS — Bureau of Indian Standards",
+    "content": "The Bureau of Indian Standards (BIS) is the national standards body of India. It develops Indian Standards (IS), operates product certification schemes (ISI mark, hallmarking, CRS), and ensures quality and safety of products. BIS works under the Ministry of Consumer Affairs, Food and Public Distribution. Key portals: bis.gov.in (information), manakonline.in (ISI/CM-L verification), crsbis.in (R-number verification).",
+    "source": "https://www.bis.gov.in/",
+    "category": "standards",
+    "is_number": null,
+    "tags": ["bis", "indian standards", "certification"]
+  },
+  {
+    "title": "Difference between BIS and ISI",
+    "content": "BIS (Bureau of Indian Standards) is the National Standards Body of India — the organisation responsible for standardisation, marking, and quality certification. ISI (Indian Standards Institution) was the former name; the ISI mark is a certification mark issued by BIS for industrial products. So: BIS is the body; the ISI mark is a product certification mark that BIS grants. Products conforming to an Indian Standard (IS) developed by BIS may carry the ISI mark to show compliance.",
+    "source": "https://www.bis.gov.in/",
+    "category": "standards",
+    "is_number": null,
+    "tags": ["bis", "isi", "difference", "certification", "mark"]
+  },
+  {
+    "title": "BIS Act 2016 — Overview",
+    "content": "The BIS Act of 2016 is an Act of the Indian Parliament that establishes the Bureau of Indian Standards (BIS) as the national standards body. It provides for harmonious development of standardisation, conformity assessment, and quality certification of goods, articles, processes, systems, and services. The Act empowers BIS to establish and promote Indian Standards, run conformity assessment schemes (including ISI mark and other certification marks), grant licences, and enforce standards. Full text: BIS Act 2016 on the BIS website.",
+    "source": "https://www.bis.gov.in/",
+    "category": "standards",
+    "is_number": null,
+    "tags": ["bis act", "2016", "act", "parliament", "standards body"]
+  },
+  {
+    "title": "Products Under Compulsory Certification",
+    "content": "Many products are under BIS compulsory certification and must carry the ISI mark. Examples include cement, LPG cylinders and regulators, electrical cables and wires, MCBs, sockets, plugs, helmets, toys, and certain steel and construction materials. A list of products under compulsory certification is published on the BIS website. Selling without a valid BIS licence is illegal.",
+    "source": "https://www.bis.gov.in/product-certification/products-under-compulsory-certification/",
+    "category": "marks",
+    "is_number": null,
+    "tags": ["compulsory", "mandatory", "isi", "product list"]
+  }
+]

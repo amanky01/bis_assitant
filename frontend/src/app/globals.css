@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bis-blue: #1e3a5f;
+  --bis-blue-light: #2d4a6f;
+  --bis-red: #c41e3a;
+  --bis-red-light: #e63950;
+  --bis-black: #1a1a1a;
+  --chat-assistant-bg: #1e3d4a;
+  --chat-assistant-border: #2a4a5a;
+}
+
+body {
+  @apply bg-bis-blue-dark text-gray-100 antialiased;
+}
+
+/* Smooth scroll for chat area */
+.chat-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Message bubble blur accent */
+.message-user {
+  @apply bg-bis-blue/90 backdrop-blur-sm border border-bis-red/30;
+}
+
+.message-assistant {
+  @apply bg-bis-chat-assistant/90 backdrop-blur-sm border border-bis-chat-assistant-border;
+}

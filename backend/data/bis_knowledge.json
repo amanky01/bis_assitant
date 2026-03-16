@@ -1,0 +1,1523 @@
+[
+  {
+    "title": "ISI Mark — Definition and Purpose",
+    "content": "The ISI mark is a certification mark for industrial products in India, administered by the Bureau of Indian Standards (BIS). It indicates that a product conforms to an Indian Standard (IS) developed by BIS. The mark is part of BIS Scheme-I for compulsory product certification, ensuring quality and safety for consumers. Products under compulsory certification (e.g. cement, LPG cylinders, electrical cables, helmets, toys) must carry the ISI mark to be sold in India.",
+    "source": "https://www.bis.gov.in/product-certification/",
+    "category": "marks",
+    "is_number": null,
+    "tags": [
+      "isi",
+      "mark",
+      "certification",
+      "compulsory",
+      "bis"
+    ]
+  },
+  {
+    "title": "How to Verify an ISI Mark — CM/L Number",
+    "content": "To verify an ISI mark, you need the CM/L (Certification Mark Licence) number printed on the product (format: CM/L-XXXXXXX, 7–8 digits). This number can be verified against the BIS database at manakonline.in. Enter the CM/L number on the Manak Online portal to check manufacturer name, IS standard, product description, validity dates, and current licence status. If the number is not found or the licence is cancelled/expired, the mark may be fake.",
+    "source": "https://www.manakonline.in/MANAK/home",
+    "category": "marks",
+    "is_number": null,
+    "tags": [
+      "isi",
+      "cm/l",
+      "cml",
+      "verify",
+      "manakonline"
+    ]
+  },
+  {
+    "title": "Hallmark — Definition and Purpose",
+    "content": "A hallmark is an official mark used to guarantee the purity or fineness of precious metal articles, such as gold jewellery. The Bureau of Indian Standards (BIS) operates a Hallmarking Scheme in India to protect consumers against adulteration and ensure manufacturers maintain legal standards of fineness. Hallmarking is done as per Indian Standard IS 15820. Since July 2021, hallmarked gold jewellery carries the BIS mark, purity (e.g. 22K916, 18K750), and a six-digit alphanumeric HUID (Hallmark Unique Identification) code.",
+    "source": "https://www.bis.gov.in/hallmarking-overview/",
+    "category": "hallmarking",
+    "is_number": "IS 15820",
+    "tags": [
+      "hallmark",
+      "gold",
+      "jewellery",
+      "huid",
+      "purity"
+    ]
+  },
+  {
+    "title": "HUID — Hallmark Unique Identification",
+    "content": "HUID (Hallmark Unique Identification) is a six-digit alphanumeric code stamped on hallmarked gold jewellery/artefacts in India. It is mandatory since July 2021. Consumers can verify a HUID using the BIS HUID verification portal to confirm the authenticity of the hallmark and see details such as purity, assaying centre, and jeweller. Verification helps detect fake or tampered hallmarks.",
+    "source": "https://www.bis.gov.in/hallmarking-overview/",
+    "category": "hallmarking",
+    "is_number": null,
+    "tags": [
+      "huid",
+      "hallmark",
+      "gold",
+      "verify"
+    ]
+  },
+  {
+    "title": "CRS — Compulsory Registration Scheme",
+    "content": "The Compulsory Registration Scheme (CRS) of BIS applies to certain electronics and IT products (e.g. mobile phones, LED lamps, laptops, power adapters). Products must be registered and carry an R-number (format R-XXXXXXXX, 8 digits). The R-number can be verified on the CRS portal crsbis.in. Only BIS-registered products can be sold in India under the order.",
+    "source": "https://www.bis.gov.in/crs/",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "BIS — Bureau of Indian Standards",
+    "content": "The Bureau of Indian Standards (BIS) is the national standards body of India. It develops Indian Standards (IS), operates product certification schemes (ISI mark, hallmarking, CRS), and ensures quality and safety of products. BIS works under the Ministry of Consumer Affairs, Food and Public Distribution. Key portals: bis.gov.in (information), manakonline.in (ISI/CM-L verification), crsbis.in (R-number verification).",
+    "source": "https://www.bis.gov.in/",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "bis",
+      "indian standards",
+      "certification"
+    ]
+  },
+  {
+    "title": "Difference between BIS and ISI",
+    "content": "BIS (Bureau of Indian Standards) is the National Standards Body of India — the organisation responsible for standardisation, marking, and quality certification. ISI (Indian Standards Institution) was the former name; the ISI mark is a certification mark issued by BIS for industrial products. So: BIS is the body; the ISI mark is a product certification mark that BIS grants. Products conforming to an Indian Standard (IS) developed by BIS may carry the ISI mark to show compliance.",
+    "source": "https://www.bis.gov.in/",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "bis",
+      "isi",
+      "difference",
+      "certification",
+      "mark"
+    ]
+  },
+  {
+    "title": "BIS Act 2016 — Overview",
+    "content": "The BIS Act of 2016 is an Act of the Indian Parliament that establishes the Bureau of Indian Standards (BIS) as the national standards body. It provides for harmonious development of standardisation, conformity assessment, and quality certification of goods, articles, processes, systems, and services. The Act empowers BIS to establish and promote Indian Standards, run conformity assessment schemes (including ISI mark and other certification marks), grant licences, and enforce standards. Full text: BIS Act 2016 on the BIS website.",
+    "source": "https://www.bis.gov.in/",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "bis act",
+      "2016",
+      "act",
+      "parliament",
+      "standards body"
+    ]
+  },
+  {
+    "title": "Products Under Compulsory Certification",
+    "content": "Many products are under BIS compulsory certification and must carry the ISI mark. Examples include cement, LPG cylinders and regulators, electrical cables and wires, MCBs, sockets, plugs, helmets, toys, and certain steel and construction materials. A list of products under compulsory certification is published on the BIS website. Selling without a valid BIS licence is illegal.",
+    "source": "https://www.bis.gov.in/product-certification/products-under-compulsory-certification/",
+    "category": "marks",
+    "is_number": null,
+    "tags": [
+      "compulsory",
+      "mandatory",
+      "isi",
+      "product list"
+    ]
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 1",
+    "content": "4772 GI/2024 \nरजिस्ट्री सं. डी.एल.- 33004/99 \nREGD. No. D. L.-33004/99 \n \n \n \nxxxGIDHxxx \nxxxGIDExxx \nअसाधारण \nEXTRAORDINARY \nभाग III—खण् ड 4 \nPART III—Section 4 \nप्राजधकार से प्रकाजित \nPUBLISHED BY AUTHORITY \nभारतीय मानक ब्यूरो \n(उपभोक्ता मामले जिभाग) \nअजधसूचना \nनई दिल्ली, 18 िुलाई, 2024 \nएफ. सं.",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 2",
+    "content": "बीएस/XIII/01/01/2024.—भारतीय मानक ब्यूरो की िासी पररषि, केंद्रीय सरकार के पूिव अनुमोिन से \nभारतीय मानक ब्यूरो अजधजनयम, 2016 (2016 का 11) की धारा 4 की उप-धारा (1) के साथ परित समय-समय पर \nयथा संिोजधत भारतीय मानक ब्यूरो जनयम, 2018 के जनयम 6 द्वारा प्रित्त िजक्तयों का प्रयोग करते हुए, इस अजधसूचना \nके प्रकाजित होने की तारीख से भारतीय मानक ब्यूरो अजधसूचना सं. एफ. सं.",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 3",
+    "content": "बीएस/13/01/2021 दिनांक 16 माचव, \n2022 में एति् द्वारा संिोधन करती है। ब् यूरो की कायवकाररणी सजमजत में जननलिजलजखत सिस्ट्य होंगे, अथावत्:- \nमहाजनिेिक, \n \n \n \n \n - अध्यक्ष \nभारतीय मानक ब्यूरो, \n \n \n \n \n (पिेन) \nमानक भिन, 9, बहािुर िाह िफर मागव, \nनई दिल्ली \nअपर सजचि और \n \n \n \n \n- सिस्ट्य \nजित्तीय सलाहकार, \n \n \nउपभोक्ता मामले, खाद्य एिं सािविजनक जितरण मंत्रालय \nकृजष भिन, नई दिल्ली \nसं. 581] \nनई दिल्ली, बृहस्ट् पजतिार, अगस्ट् त 1, 2024/श्रािण 10, 1946 \n \nNo.",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 4",
+    "content": "581] \nNEW DELHI, THURSDAY, AUGUST 1, 2024/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 5",
+    "content": "24/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 6",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \nअपर सजचि, भारत सरकार \n \n \n \n - सिस्ट्य \nउपभोक्ता मामले जिभाग \nकृजष भिन, नई दिल्ली \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \nउद्योग संिधवन और \nआंतररक व्यापार जिभाग (डीपीआईआईटी), \nिाजणज्य एिं उद्योग मंत्रालय \n \n \n \n \n \n \n \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \n \nइलेक्ट्रॉजनक्ट्स और सूचना प्रौद्योजगकी मंत्रालय \n \n(एमईआईटीिाई) \n \n \n \n \nसजचि या प्रधान सजचि \n \n \n \n - सिस्ट्य \nउत्तर प्रिेि के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nसजचि या प्रधान सजचि \n \n \n - सिस्ट्य \n तजमल नाडु के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nडॉ.",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 7",
+    "content": "अनंत िमाव, \n \n \n \n \n \n- सिस्ट्य \nराष्ट्रीय अध्यक्ष, \nभारतीय उपभोक्ता पररसंघ (सीसीआई) \n(9) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \n \n भारतीय इलेजक्ट्रकल एिं इलेक्ट्रॉजनक्ट्स जनमावता संघ \n \n (आईईईएमए) \n(10) \nप्रो.",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 8",
+    "content": "िेणुगोपाल अचंता, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nराष्ट्रीय भौजतक प्रयोगिाला (एनपीएल) \n(11) \nप्रोफेसर रित मूना, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nभारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गांधीनगर \n(12) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \nऊिाव िक्षता ब्यूरो (बीईई) \n(13) जनिेिक, \n भारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 9",
+    "content": "ान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 10",
+    "content": "[भाग III—खण् ड 4] \nभारत का रािपत्र : असाधारण \nBUREAU OF INDIAN STANDARDS \n(Department of Consumer Affairs) \nNOTIFICATION \nNew Delhi, the 18th July, 2024 \nF. No.",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 11",
+    "content": "BS/XIII/01/01/2024.—In exercise of the powers conferred by sub-section (1) of section 4 of the \nBureau of Indian Standards Act, 2016 (11 of 2016) read with rule 6 of the Bureau of Indian Standards Rules, \n2018, as amended from time to time, the Governing Council of the Bureau, with the prior approval of the Central \nGovernment, hereby makes the amendment in the Bureau of Indian Standards Notification No. F. No.",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 12",
+    "content": "BS/13/01/2021 dated 16 March, 2022, with effect from the date of publication of this Notification. The Executive \nCommittee of the Bureau shall consist of the following members, namely:- \n(1) Director General, \n \n \n \n \n- Chairman \n Bureau of Indian Standards, \n \n \n \n \n (Ex-officio) \n Manak Bhavan, 9, Bahadur Shah Zafar Marg, \n New Delhi.",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 13",
+    "content": "(2) Additional Secretary and \n \n \n \n \n \n- Member \n Financial Adviser, \n \n Ministry of Consumer Affairs, Food and \n Public Distribution, \n Krishi Bhavan, New Delhi \n(3) Additional Secretary \n \n \n \n \n \n- Member \n to the Government of India, \n \n Department of Consumer Affairs, \n Krishi Bhavan, New Delhi \n(4) Joint Secretary, \n \n \n \n \n \n \n- Member \n Department for Promotion of Industry and \n Internal Trade (DPIIT), \n Ministry of Commerce & Industry \n \n \n \n \n \n \n \n(5) Joint Secretary, \n \n \n \n \n \n \n- Member \n Ministry of Electronics and Information Technology (MEITY) \n \n \n \n \n \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \n \n \nIndustries of UP \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \nIndustries of Tamil Nadu \n \n \n \n \n \nDr.",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 14",
+    "content": "Anant Sharma, \n \n \n \n \n \n- Member \nNational President, \nConsumer Confederation of India (CCI) \n(9) Director General, \n \n \n \n \n \n- Member \n \n Indian Electrical & Electronics Manufacturers’ Association \n \n (IEEMA) \n(10) \nProf. Venugopal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 15",
+    "content": "opal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 16",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \n(11) \nProf Rajat Moona, \n \n \n \n \n \n- Member \nDirector, \nIndian Institute of Technology (IIT), Gandhinagar \n(12) Director General, \n \n \n \n \n \n- Member \nBureau of Energy Efficiency (BEE) \n(13) Director, \n \nIndian Institute of Technology (IIT), Guwahati - Member \n \n \n \n ALKA, Secy. [ADVT. -III/4/Exty./350/2024-25] \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nUploaded by Dte.",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "energy",
+    "is_number": null,
+    "tags": [
+      "bee",
+      "star rating",
+      "energy"
+    ]
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 17",
+    "content": "of Printing at Government of India Press, Ring Road, Mayapuri, New Delhi-110064 \nand Published by the Controller of Publications, Delhi-110054. SARVESH \nKUMAR \nSRIVASTAVA\nDigitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Compulsory Registration Order — Part 18",
+    "content": "gitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_compulsory_registration_order.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 1",
+    "content": "4772 GI/2024 \nरजिस्ट्री सं. डी.एल.- 33004/99 \nREGD. No. D. L.-33004/99 \n \n \n \nxxxGIDHxxx \nxxxGIDExxx \nअसाधारण \nEXTRAORDINARY \nभाग III—खण् ड 4 \nPART III—Section 4 \nप्राजधकार से प्रकाजित \nPUBLISHED BY AUTHORITY \nभारतीय मानक ब्यूरो \n(उपभोक्ता मामले जिभाग) \nअजधसूचना \nनई दिल्ली, 18 िुलाई, 2024 \nएफ. सं.",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Crs Scheme — Part 2",
+    "content": "बीएस/XIII/01/01/2024.—भारतीय मानक ब्यूरो की िासी पररषि, केंद्रीय सरकार के पूिव अनुमोिन से \nभारतीय मानक ब्यूरो अजधजनयम, 2016 (2016 का 11) की धारा 4 की उप-धारा (1) के साथ परित समय-समय पर \nयथा संिोजधत भारतीय मानक ब्यूरो जनयम, 2018 के जनयम 6 द्वारा प्रित्त िजक्तयों का प्रयोग करते हुए, इस अजधसूचना \nके प्रकाजित होने की तारीख से भारतीय मानक ब्यूरो अजधसूचना सं. एफ. सं.",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 3",
+    "content": "बीएस/13/01/2021 दिनांक 16 माचव, \n2022 में एति् द्वारा संिोधन करती है। ब् यूरो की कायवकाररणी सजमजत में जननलिजलजखत सिस्ट्य होंगे, अथावत्:- \nमहाजनिेिक, \n \n \n \n \n - अध्यक्ष \nभारतीय मानक ब्यूरो, \n \n \n \n \n (पिेन) \nमानक भिन, 9, बहािुर िाह िफर मागव, \nनई दिल्ली \nअपर सजचि और \n \n \n \n \n- सिस्ट्य \nजित्तीय सलाहकार, \n \n \nउपभोक्ता मामले, खाद्य एिं सािविजनक जितरण मंत्रालय \nकृजष भिन, नई दिल्ली \nसं. 581] \nनई दिल्ली, बृहस्ट् पजतिार, अगस्ट् त 1, 2024/श्रािण 10, 1946 \n \nNo.",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 4",
+    "content": "581] \nNEW DELHI, THURSDAY, AUGUST 1, 2024/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 5",
+    "content": "24/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 6",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \nअपर सजचि, भारत सरकार \n \n \n \n - सिस्ट्य \nउपभोक्ता मामले जिभाग \nकृजष भिन, नई दिल्ली \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \nउद्योग संिधवन और \nआंतररक व्यापार जिभाग (डीपीआईआईटी), \nिाजणज्य एिं उद्योग मंत्रालय \n \n \n \n \n \n \n \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \n \nइलेक्ट्रॉजनक्ट्स और सूचना प्रौद्योजगकी मंत्रालय \n \n(एमईआईटीिाई) \n \n \n \n \nसजचि या प्रधान सजचि \n \n \n \n - सिस्ट्य \nउत्तर प्रिेि के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nसजचि या प्रधान सजचि \n \n \n - सिस्ट्य \n तजमल नाडु के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nडॉ.",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 7",
+    "content": "अनंत िमाव, \n \n \n \n \n \n- सिस्ट्य \nराष्ट्रीय अध्यक्ष, \nभारतीय उपभोक्ता पररसंघ (सीसीआई) \n(9) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \n \n भारतीय इलेजक्ट्रकल एिं इलेक्ट्रॉजनक्ट्स जनमावता संघ \n \n (आईईईएमए) \n(10) \nप्रो.",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 8",
+    "content": "िेणुगोपाल अचंता, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nराष्ट्रीय भौजतक प्रयोगिाला (एनपीएल) \n(11) \nप्रोफेसर रित मूना, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nभारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गांधीनगर \n(12) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \nऊिाव िक्षता ब्यूरो (बीईई) \n(13) जनिेिक, \n भारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 9",
+    "content": "ान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 10",
+    "content": "[भाग III—खण् ड 4] \nभारत का रािपत्र : असाधारण \nBUREAU OF INDIAN STANDARDS \n(Department of Consumer Affairs) \nNOTIFICATION \nNew Delhi, the 18th July, 2024 \nF. No.",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Crs Scheme — Part 11",
+    "content": "BS/XIII/01/01/2024.—In exercise of the powers conferred by sub-section (1) of section 4 of the \nBureau of Indian Standards Act, 2016 (11 of 2016) read with rule 6 of the Bureau of Indian Standards Rules, \n2018, as amended from time to time, the Governing Council of the Bureau, with the prior approval of the Central \nGovernment, hereby makes the amendment in the Bureau of Indian Standards Notification No. F. No.",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Crs Scheme — Part 12",
+    "content": "BS/13/01/2021 dated 16 March, 2022, with effect from the date of publication of this Notification. The Executive \nCommittee of the Bureau shall consist of the following members, namely:- \n(1) Director General, \n \n \n \n \n- Chairman \n Bureau of Indian Standards, \n \n \n \n \n (Ex-officio) \n Manak Bhavan, 9, Bahadur Shah Zafar Marg, \n New Delhi.",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Crs Scheme — Part 13",
+    "content": "(2) Additional Secretary and \n \n \n \n \n \n- Member \n Financial Adviser, \n \n Ministry of Consumer Affairs, Food and \n Public Distribution, \n Krishi Bhavan, New Delhi \n(3) Additional Secretary \n \n \n \n \n \n- Member \n to the Government of India, \n \n Department of Consumer Affairs, \n Krishi Bhavan, New Delhi \n(4) Joint Secretary, \n \n \n \n \n \n \n- Member \n Department for Promotion of Industry and \n Internal Trade (DPIIT), \n Ministry of Commerce & Industry \n \n \n \n \n \n \n \n(5) Joint Secretary, \n \n \n \n \n \n \n- Member \n Ministry of Electronics and Information Technology (MEITY) \n \n \n \n \n \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \n \n \nIndustries of UP \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \nIndustries of Tamil Nadu \n \n \n \n \n \nDr.",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Crs Scheme — Part 14",
+    "content": "Anant Sharma, \n \n \n \n \n \n- Member \nNational President, \nConsumer Confederation of India (CCI) \n(9) Director General, \n \n \n \n \n \n- Member \n \n Indian Electrical & Electronics Manufacturers’ Association \n \n (IEEMA) \n(10) \nProf. Venugopal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Crs Scheme — Part 15",
+    "content": "opal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 16",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \n(11) \nProf Rajat Moona, \n \n \n \n \n \n- Member \nDirector, \nIndian Institute of Technology (IIT), Gandhinagar \n(12) Director General, \n \n \n \n \n \n- Member \nBureau of Energy Efficiency (BEE) \n(13) Director, \n \nIndian Institute of Technology (IIT), Guwahati - Member \n \n \n \n ALKA, Secy. [ADVT. -III/4/Exty./350/2024-25] \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nUploaded by Dte.",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "energy",
+    "is_number": null,
+    "tags": [
+      "bee",
+      "star rating",
+      "energy"
+    ]
+  },
+  {
+    "title": "Bis Crs Scheme — Part 17",
+    "content": "of Printing at Government of India Press, Ring Road, Mayapuri, New Delhi-110064 \nand Published by the Controller of Publications, Delhi-110054. SARVESH \nKUMAR \nSRIVASTAVA\nDigitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Crs Scheme — Part 18",
+    "content": "gitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_crs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 1",
+    "content": "4772 GI/2024 \nरजिस्ट्री सं. डी.एल.- 33004/99 \nREGD. No. D. L.-33004/99 \n \n \n \nxxxGIDHxxx \nxxxGIDExxx \nअसाधारण \nEXTRAORDINARY \nभाग III—खण् ड 4 \nPART III—Section 4 \nप्राजधकार से प्रकाजित \nPUBLISHED BY AUTHORITY \nभारतीय मानक ब्यूरो \n(उपभोक्ता मामले जिभाग) \nअजधसूचना \nनई दिल्ली, 18 िुलाई, 2024 \nएफ. सं.",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 2",
+    "content": "बीएस/XIII/01/01/2024.—भारतीय मानक ब्यूरो की िासी पररषि, केंद्रीय सरकार के पूिव अनुमोिन से \nभारतीय मानक ब्यूरो अजधजनयम, 2016 (2016 का 11) की धारा 4 की उप-धारा (1) के साथ परित समय-समय पर \nयथा संिोजधत भारतीय मानक ब्यूरो जनयम, 2018 के जनयम 6 द्वारा प्रित्त िजक्तयों का प्रयोग करते हुए, इस अजधसूचना \nके प्रकाजित होने की तारीख से भारतीय मानक ब्यूरो अजधसूचना सं. एफ. सं.",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 3",
+    "content": "बीएस/13/01/2021 दिनांक 16 माचव, \n2022 में एति् द्वारा संिोधन करती है। ब् यूरो की कायवकाररणी सजमजत में जननलिजलजखत सिस्ट्य होंगे, अथावत्:- \nमहाजनिेिक, \n \n \n \n \n - अध्यक्ष \nभारतीय मानक ब्यूरो, \n \n \n \n \n (पिेन) \nमानक भिन, 9, बहािुर िाह िफर मागव, \nनई दिल्ली \nअपर सजचि और \n \n \n \n \n- सिस्ट्य \nजित्तीय सलाहकार, \n \n \nउपभोक्ता मामले, खाद्य एिं सािविजनक जितरण मंत्रालय \nकृजष भिन, नई दिल्ली \nसं. 581] \nनई दिल्ली, बृहस्ट् पजतिार, अगस्ट् त 1, 2024/श्रािण 10, 1946 \n \nNo.",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 4",
+    "content": "581] \nNEW DELHI, THURSDAY, AUGUST 1, 2024/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 5",
+    "content": "24/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 6",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \nअपर सजचि, भारत सरकार \n \n \n \n - सिस्ट्य \nउपभोक्ता मामले जिभाग \nकृजष भिन, नई दिल्ली \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \nउद्योग संिधवन और \nआंतररक व्यापार जिभाग (डीपीआईआईटी), \nिाजणज्य एिं उद्योग मंत्रालय \n \n \n \n \n \n \n \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \n \nइलेक्ट्रॉजनक्ट्स और सूचना प्रौद्योजगकी मंत्रालय \n \n(एमईआईटीिाई) \n \n \n \n \nसजचि या प्रधान सजचि \n \n \n \n - सिस्ट्य \nउत्तर प्रिेि के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nसजचि या प्रधान सजचि \n \n \n - सिस्ट्य \n तजमल नाडु के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nडॉ.",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 7",
+    "content": "अनंत िमाव, \n \n \n \n \n \n- सिस्ट्य \nराष्ट्रीय अध्यक्ष, \nभारतीय उपभोक्ता पररसंघ (सीसीआई) \n(9) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \n \n भारतीय इलेजक्ट्रकल एिं इलेक्ट्रॉजनक्ट्स जनमावता संघ \n \n (आईईईएमए) \n(10) \nप्रो.",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 8",
+    "content": "िेणुगोपाल अचंता, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nराष्ट्रीय भौजतक प्रयोगिाला (एनपीएल) \n(11) \nप्रोफेसर रित मूना, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nभारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गांधीनगर \n(12) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \nऊिाव िक्षता ब्यूरो (बीईई) \n(13) जनिेिक, \n भारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 9",
+    "content": "ान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 10",
+    "content": "[भाग III—खण् ड 4] \nभारत का रािपत्र : असाधारण \nBUREAU OF INDIAN STANDARDS \n(Department of Consumer Affairs) \nNOTIFICATION \nNew Delhi, the 18th July, 2024 \nF. No.",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 11",
+    "content": "BS/XIII/01/01/2024.—In exercise of the powers conferred by sub-section (1) of section 4 of the \nBureau of Indian Standards Act, 2016 (11 of 2016) read with rule 6 of the Bureau of Indian Standards Rules, \n2018, as amended from time to time, the Governing Council of the Bureau, with the prior approval of the Central \nGovernment, hereby makes the amendment in the Bureau of Indian Standards Notification No. F. No.",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 12",
+    "content": "BS/13/01/2021 dated 16 March, 2022, with effect from the date of publication of this Notification. The Executive \nCommittee of the Bureau shall consist of the following members, namely:- \n(1) Director General, \n \n \n \n \n- Chairman \n Bureau of Indian Standards, \n \n \n \n \n (Ex-officio) \n Manak Bhavan, 9, Bahadur Shah Zafar Marg, \n New Delhi.",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 13",
+    "content": "(2) Additional Secretary and \n \n \n \n \n \n- Member \n Financial Adviser, \n \n Ministry of Consumer Affairs, Food and \n Public Distribution, \n Krishi Bhavan, New Delhi \n(3) Additional Secretary \n \n \n \n \n \n- Member \n to the Government of India, \n \n Department of Consumer Affairs, \n Krishi Bhavan, New Delhi \n(4) Joint Secretary, \n \n \n \n \n \n \n- Member \n Department for Promotion of Industry and \n Internal Trade (DPIIT), \n Ministry of Commerce & Industry \n \n \n \n \n \n \n \n(5) Joint Secretary, \n \n \n \n \n \n \n- Member \n Ministry of Electronics and Information Technology (MEITY) \n \n \n \n \n \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \n \n \nIndustries of UP \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \nIndustries of Tamil Nadu \n \n \n \n \n \nDr.",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 14",
+    "content": "Anant Sharma, \n \n \n \n \n \n- Member \nNational President, \nConsumer Confederation of India (CCI) \n(9) Director General, \n \n \n \n \n \n- Member \n \n Indian Electrical & Electronics Manufacturers’ Association \n \n (IEEMA) \n(10) \nProf. Venugopal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 15",
+    "content": "opal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 16",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \n(11) \nProf Rajat Moona, \n \n \n \n \n \n- Member \nDirector, \nIndian Institute of Technology (IIT), Gandhinagar \n(12) Director General, \n \n \n \n \n \n- Member \nBureau of Energy Efficiency (BEE) \n(13) Director, \n \nIndian Institute of Technology (IIT), Guwahati - Member \n \n \n \n ALKA, Secy. [ADVT. -III/4/Exty./350/2024-25] \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nUploaded by Dte.",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "energy",
+    "is_number": null,
+    "tags": [
+      "bee",
+      "star rating",
+      "energy"
+    ]
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 17",
+    "content": "of Printing at Government of India Press, Ring Road, Mayapuri, New Delhi-110064 \nand Published by the Controller of Publications, Delhi-110054. SARVESH \nKUMAR \nSRIVASTAVA\nDigitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Eco Mark Scheme — Part 18",
+    "content": "gitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_eco_mark_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 1",
+    "content": "4772 GI/2024 \nरजिस्ट्री सं. डी.एल.- 33004/99 \nREGD. No. D. L.-33004/99 \n \n \n \nxxxGIDHxxx \nxxxGIDExxx \nअसाधारण \nEXTRAORDINARY \nभाग III—खण् ड 4 \nPART III—Section 4 \nप्राजधकार से प्रकाजित \nPUBLISHED BY AUTHORITY \nभारतीय मानक ब्यूरो \n(उपभोक्ता मामले जिभाग) \nअजधसूचना \nनई दिल्ली, 18 िुलाई, 2024 \nएफ. सं.",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 2",
+    "content": "बीएस/XIII/01/01/2024.—भारतीय मानक ब्यूरो की िासी पररषि, केंद्रीय सरकार के पूिव अनुमोिन से \nभारतीय मानक ब्यूरो अजधजनयम, 2016 (2016 का 11) की धारा 4 की उप-धारा (1) के साथ परित समय-समय पर \nयथा संिोजधत भारतीय मानक ब्यूरो जनयम, 2018 के जनयम 6 द्वारा प्रित्त िजक्तयों का प्रयोग करते हुए, इस अजधसूचना \nके प्रकाजित होने की तारीख से भारतीय मानक ब्यूरो अजधसूचना सं. एफ. सं.",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 3",
+    "content": "बीएस/13/01/2021 दिनांक 16 माचव, \n2022 में एति् द्वारा संिोधन करती है। ब् यूरो की कायवकाररणी सजमजत में जननलिजलजखत सिस्ट्य होंगे, अथावत्:- \nमहाजनिेिक, \n \n \n \n \n - अध्यक्ष \nभारतीय मानक ब्यूरो, \n \n \n \n \n (पिेन) \nमानक भिन, 9, बहािुर िाह िफर मागव, \nनई दिल्ली \nअपर सजचि और \n \n \n \n \n- सिस्ट्य \nजित्तीय सलाहकार, \n \n \nउपभोक्ता मामले, खाद्य एिं सािविजनक जितरण मंत्रालय \nकृजष भिन, नई दिल्ली \nसं. 581] \nनई दिल्ली, बृहस्ट् पजतिार, अगस्ट् त 1, 2024/श्रािण 10, 1946 \n \nNo.",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 4",
+    "content": "581] \nNEW DELHI, THURSDAY, AUGUST 1, 2024/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 5",
+    "content": "24/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 6",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \nअपर सजचि, भारत सरकार \n \n \n \n - सिस्ट्य \nउपभोक्ता मामले जिभाग \nकृजष भिन, नई दिल्ली \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \nउद्योग संिधवन और \nआंतररक व्यापार जिभाग (डीपीआईआईटी), \nिाजणज्य एिं उद्योग मंत्रालय \n \n \n \n \n \n \n \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \n \nइलेक्ट्रॉजनक्ट्स और सूचना प्रौद्योजगकी मंत्रालय \n \n(एमईआईटीिाई) \n \n \n \n \nसजचि या प्रधान सजचि \n \n \n \n - सिस्ट्य \nउत्तर प्रिेि के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nसजचि या प्रधान सजचि \n \n \n - सिस्ट्य \n तजमल नाडु के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nडॉ.",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 7",
+    "content": "अनंत िमाव, \n \n \n \n \n \n- सिस्ट्य \nराष्ट्रीय अध्यक्ष, \nभारतीय उपभोक्ता पररसंघ (सीसीआई) \n(9) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \n \n भारतीय इलेजक्ट्रकल एिं इलेक्ट्रॉजनक्ट्स जनमावता संघ \n \n (आईईईएमए) \n(10) \nप्रो.",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 8",
+    "content": "िेणुगोपाल अचंता, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nराष्ट्रीय भौजतक प्रयोगिाला (एनपीएल) \n(11) \nप्रोफेसर रित मूना, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nभारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गांधीनगर \n(12) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \nऊिाव िक्षता ब्यूरो (बीईई) \n(13) जनिेिक, \n भारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 9",
+    "content": "ान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 10",
+    "content": "[भाग III—खण् ड 4] \nभारत का रािपत्र : असाधारण \nBUREAU OF INDIAN STANDARDS \n(Department of Consumer Affairs) \nNOTIFICATION \nNew Delhi, the 18th July, 2024 \nF. No.",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 11",
+    "content": "BS/XIII/01/01/2024.—In exercise of the powers conferred by sub-section (1) of section 4 of the \nBureau of Indian Standards Act, 2016 (11 of 2016) read with rule 6 of the Bureau of Indian Standards Rules, \n2018, as amended from time to time, the Governing Council of the Bureau, with the prior approval of the Central \nGovernment, hereby makes the amendment in the Bureau of Indian Standards Notification No. F. No.",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 12",
+    "content": "BS/13/01/2021 dated 16 March, 2022, with effect from the date of publication of this Notification. The Executive \nCommittee of the Bureau shall consist of the following members, namely:- \n(1) Director General, \n \n \n \n \n- Chairman \n Bureau of Indian Standards, \n \n \n \n \n (Ex-officio) \n Manak Bhavan, 9, Bahadur Shah Zafar Marg, \n New Delhi.",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 13",
+    "content": "(2) Additional Secretary and \n \n \n \n \n \n- Member \n Financial Adviser, \n \n Ministry of Consumer Affairs, Food and \n Public Distribution, \n Krishi Bhavan, New Delhi \n(3) Additional Secretary \n \n \n \n \n \n- Member \n to the Government of India, \n \n Department of Consumer Affairs, \n Krishi Bhavan, New Delhi \n(4) Joint Secretary, \n \n \n \n \n \n \n- Member \n Department for Promotion of Industry and \n Internal Trade (DPIIT), \n Ministry of Commerce & Industry \n \n \n \n \n \n \n \n(5) Joint Secretary, \n \n \n \n \n \n \n- Member \n Ministry of Electronics and Information Technology (MEITY) \n \n \n \n \n \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \n \n \nIndustries of UP \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \nIndustries of Tamil Nadu \n \n \n \n \n \nDr.",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 14",
+    "content": "Anant Sharma, \n \n \n \n \n \n- Member \nNational President, \nConsumer Confederation of India (CCI) \n(9) Director General, \n \n \n \n \n \n- Member \n \n Indian Electrical & Electronics Manufacturers’ Association \n \n (IEEMA) \n(10) \nProf. Venugopal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 15",
+    "content": "opal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 16",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \n(11) \nProf Rajat Moona, \n \n \n \n \n \n- Member \nDirector, \nIndian Institute of Technology (IIT), Gandhinagar \n(12) Director General, \n \n \n \n \n \n- Member \nBureau of Energy Efficiency (BEE) \n(13) Director, \n \nIndian Institute of Technology (IIT), Guwahati - Member \n \n \n \n ALKA, Secy. [ADVT. -III/4/Exty./350/2024-25] \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nUploaded by Dte.",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "energy",
+    "is_number": null,
+    "tags": [
+      "bee",
+      "star rating",
+      "energy"
+    ]
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 17",
+    "content": "of Printing at Government of India Press, Ring Road, Mayapuri, New Delhi-110064 \nand Published by the Controller of Publications, Delhi-110054. SARVESH \nKUMAR \nSRIVASTAVA\nDigitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Fmcs Scheme — Part 18",
+    "content": "gitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_fmcs_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 1",
+    "content": "4772 GI/2024 \nरजिस्ट्री सं. डी.एल.- 33004/99 \nREGD. No. D. L.-33004/99 \n \n \n \nxxxGIDHxxx \nxxxGIDExxx \nअसाधारण \nEXTRAORDINARY \nभाग III—खण् ड 4 \nPART III—Section 4 \nप्राजधकार से प्रकाजित \nPUBLISHED BY AUTHORITY \nभारतीय मानक ब्यूरो \n(उपभोक्ता मामले जिभाग) \nअजधसूचना \nनई दिल्ली, 18 िुलाई, 2024 \nएफ. सं.",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 2",
+    "content": "बीएस/XIII/01/01/2024.—भारतीय मानक ब्यूरो की िासी पररषि, केंद्रीय सरकार के पूिव अनुमोिन से \nभारतीय मानक ब्यूरो अजधजनयम, 2016 (2016 का 11) की धारा 4 की उप-धारा (1) के साथ परित समय-समय पर \nयथा संिोजधत भारतीय मानक ब्यूरो जनयम, 2018 के जनयम 6 द्वारा प्रित्त िजक्तयों का प्रयोग करते हुए, इस अजधसूचना \nके प्रकाजित होने की तारीख से भारतीय मानक ब्यूरो अजधसूचना सं. एफ. सं.",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 3",
+    "content": "बीएस/13/01/2021 दिनांक 16 माचव, \n2022 में एति् द्वारा संिोधन करती है। ब् यूरो की कायवकाररणी सजमजत में जननलिजलजखत सिस्ट्य होंगे, अथावत्:- \nमहाजनिेिक, \n \n \n \n \n - अध्यक्ष \nभारतीय मानक ब्यूरो, \n \n \n \n \n (पिेन) \nमानक भिन, 9, बहािुर िाह िफर मागव, \nनई दिल्ली \nअपर सजचि और \n \n \n \n \n- सिस्ट्य \nजित्तीय सलाहकार, \n \n \nउपभोक्ता मामले, खाद्य एिं सािविजनक जितरण मंत्रालय \nकृजष भिन, नई दिल्ली \nसं. 581] \nनई दिल्ली, बृहस्ट् पजतिार, अगस्ट् त 1, 2024/श्रािण 10, 1946 \n \nNo.",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 4",
+    "content": "581] \nNEW DELHI, THURSDAY, AUGUST 1, 2024/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 5",
+    "content": "24/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 6",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \nअपर सजचि, भारत सरकार \n \n \n \n - सिस्ट्य \nउपभोक्ता मामले जिभाग \nकृजष भिन, नई दिल्ली \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \nउद्योग संिधवन और \nआंतररक व्यापार जिभाग (डीपीआईआईटी), \nिाजणज्य एिं उद्योग मंत्रालय \n \n \n \n \n \n \n \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \n \nइलेक्ट्रॉजनक्ट्स और सूचना प्रौद्योजगकी मंत्रालय \n \n(एमईआईटीिाई) \n \n \n \n \nसजचि या प्रधान सजचि \n \n \n \n - सिस्ट्य \nउत्तर प्रिेि के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nसजचि या प्रधान सजचि \n \n \n - सिस्ट्य \n तजमल नाडु के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nडॉ.",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 7",
+    "content": "अनंत िमाव, \n \n \n \n \n \n- सिस्ट्य \nराष्ट्रीय अध्यक्ष, \nभारतीय उपभोक्ता पररसंघ (सीसीआई) \n(9) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \n \n भारतीय इलेजक्ट्रकल एिं इलेक्ट्रॉजनक्ट्स जनमावता संघ \n \n (आईईईएमए) \n(10) \nप्रो.",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 8",
+    "content": "िेणुगोपाल अचंता, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nराष्ट्रीय भौजतक प्रयोगिाला (एनपीएल) \n(11) \nप्रोफेसर रित मूना, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nभारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गांधीनगर \n(12) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \nऊिाव िक्षता ब्यूरो (बीईई) \n(13) जनिेिक, \n भारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 9",
+    "content": "ान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 10",
+    "content": "[भाग III—खण् ड 4] \nभारत का रािपत्र : असाधारण \nBUREAU OF INDIAN STANDARDS \n(Department of Consumer Affairs) \nNOTIFICATION \nNew Delhi, the 18th July, 2024 \nF. No.",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 11",
+    "content": "BS/XIII/01/01/2024.—In exercise of the powers conferred by sub-section (1) of section 4 of the \nBureau of Indian Standards Act, 2016 (11 of 2016) read with rule 6 of the Bureau of Indian Standards Rules, \n2018, as amended from time to time, the Governing Council of the Bureau, with the prior approval of the Central \nGovernment, hereby makes the amendment in the Bureau of Indian Standards Notification No. F. No.",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 12",
+    "content": "BS/13/01/2021 dated 16 March, 2022, with effect from the date of publication of this Notification. The Executive \nCommittee of the Bureau shall consist of the following members, namely:- \n(1) Director General, \n \n \n \n \n- Chairman \n Bureau of Indian Standards, \n \n \n \n \n (Ex-officio) \n Manak Bhavan, 9, Bahadur Shah Zafar Marg, \n New Delhi.",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 13",
+    "content": "(2) Additional Secretary and \n \n \n \n \n \n- Member \n Financial Adviser, \n \n Ministry of Consumer Affairs, Food and \n Public Distribution, \n Krishi Bhavan, New Delhi \n(3) Additional Secretary \n \n \n \n \n \n- Member \n to the Government of India, \n \n Department of Consumer Affairs, \n Krishi Bhavan, New Delhi \n(4) Joint Secretary, \n \n \n \n \n \n \n- Member \n Department for Promotion of Industry and \n Internal Trade (DPIIT), \n Ministry of Commerce & Industry \n \n \n \n \n \n \n \n(5) Joint Secretary, \n \n \n \n \n \n \n- Member \n Ministry of Electronics and Information Technology (MEITY) \n \n \n \n \n \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \n \n \nIndustries of UP \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \nIndustries of Tamil Nadu \n \n \n \n \n \nDr.",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 14",
+    "content": "Anant Sharma, \n \n \n \n \n \n- Member \nNational President, \nConsumer Confederation of India (CCI) \n(9) Director General, \n \n \n \n \n \n- Member \n \n Indian Electrical & Electronics Manufacturers’ Association \n \n (IEEMA) \n(10) \nProf. Venugopal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 15",
+    "content": "opal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 16",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \n(11) \nProf Rajat Moona, \n \n \n \n \n \n- Member \nDirector, \nIndian Institute of Technology (IIT), Gandhinagar \n(12) Director General, \n \n \n \n \n \n- Member \nBureau of Energy Efficiency (BEE) \n(13) Director, \n \nIndian Institute of Technology (IIT), Guwahati - Member \n \n \n \n ALKA, Secy. [ADVT. -III/4/Exty./350/2024-25] \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nUploaded by Dte.",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "energy",
+    "is_number": null,
+    "tags": [
+      "bee",
+      "star rating",
+      "energy"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 17",
+    "content": "of Printing at Government of India Press, Ring Road, Mayapuri, New Delhi-110064 \nand Published by the Controller of Publications, Delhi-110054. SARVESH \nKUMAR \nSRIVASTAVA\nDigitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Regulations 2018 — Part 18",
+    "content": "gitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_hallmarking_regulations_2018.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 1",
+    "content": "4772 GI/2024 \nरजिस्ट्री सं. डी.एल.- 33004/99 \nREGD. No. D. L.-33004/99 \n \n \n \nxxxGIDHxxx \nxxxGIDExxx \nअसाधारण \nEXTRAORDINARY \nभाग III—खण् ड 4 \nPART III—Section 4 \nप्राजधकार से प्रकाजित \nPUBLISHED BY AUTHORITY \nभारतीय मानक ब्यूरो \n(उपभोक्ता मामले जिभाग) \nअजधसूचना \nनई दिल्ली, 18 िुलाई, 2024 \nएफ. सं.",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 2",
+    "content": "बीएस/XIII/01/01/2024.—भारतीय मानक ब्यूरो की िासी पररषि, केंद्रीय सरकार के पूिव अनुमोिन से \nभारतीय मानक ब्यूरो अजधजनयम, 2016 (2016 का 11) की धारा 4 की उप-धारा (1) के साथ परित समय-समय पर \nयथा संिोजधत भारतीय मानक ब्यूरो जनयम, 2018 के जनयम 6 द्वारा प्रित्त िजक्तयों का प्रयोग करते हुए, इस अजधसूचना \nके प्रकाजित होने की तारीख से भारतीय मानक ब्यूरो अजधसूचना सं. एफ. सं.",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 3",
+    "content": "बीएस/13/01/2021 दिनांक 16 माचव, \n2022 में एति् द्वारा संिोधन करती है। ब् यूरो की कायवकाररणी सजमजत में जननलिजलजखत सिस्ट्य होंगे, अथावत्:- \nमहाजनिेिक, \n \n \n \n \n - अध्यक्ष \nभारतीय मानक ब्यूरो, \n \n \n \n \n (पिेन) \nमानक भिन, 9, बहािुर िाह िफर मागव, \nनई दिल्ली \nअपर सजचि और \n \n \n \n \n- सिस्ट्य \nजित्तीय सलाहकार, \n \n \nउपभोक्ता मामले, खाद्य एिं सािविजनक जितरण मंत्रालय \nकृजष भिन, नई दिल्ली \nसं. 581] \nनई दिल्ली, बृहस्ट् पजतिार, अगस्ट् त 1, 2024/श्रािण 10, 1946 \n \nNo.",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 4",
+    "content": "581] \nNEW DELHI, THURSDAY, AUGUST 1, 2024/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 5",
+    "content": "24/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 6",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \nअपर सजचि, भारत सरकार \n \n \n \n - सिस्ट्य \nउपभोक्ता मामले जिभाग \nकृजष भिन, नई दिल्ली \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \nउद्योग संिधवन और \nआंतररक व्यापार जिभाग (डीपीआईआईटी), \nिाजणज्य एिं उद्योग मंत्रालय \n \n \n \n \n \n \n \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \n \nइलेक्ट्रॉजनक्ट्स और सूचना प्रौद्योजगकी मंत्रालय \n \n(एमईआईटीिाई) \n \n \n \n \nसजचि या प्रधान सजचि \n \n \n \n - सिस्ट्य \nउत्तर प्रिेि के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nसजचि या प्रधान सजचि \n \n \n - सिस्ट्य \n तजमल नाडु के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nडॉ.",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 7",
+    "content": "अनंत िमाव, \n \n \n \n \n \n- सिस्ट्य \nराष्ट्रीय अध्यक्ष, \nभारतीय उपभोक्ता पररसंघ (सीसीआई) \n(9) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \n \n भारतीय इलेजक्ट्रकल एिं इलेक्ट्रॉजनक्ट्स जनमावता संघ \n \n (आईईईएमए) \n(10) \nप्रो.",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 8",
+    "content": "िेणुगोपाल अचंता, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nराष्ट्रीय भौजतक प्रयोगिाला (एनपीएल) \n(11) \nप्रोफेसर रित मूना, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nभारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गांधीनगर \n(12) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \nऊिाव िक्षता ब्यूरो (बीईई) \n(13) जनिेिक, \n भारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 9",
+    "content": "ान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 10",
+    "content": "[भाग III—खण् ड 4] \nभारत का रािपत्र : असाधारण \nBUREAU OF INDIAN STANDARDS \n(Department of Consumer Affairs) \nNOTIFICATION \nNew Delhi, the 18th July, 2024 \nF. No.",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 11",
+    "content": "BS/XIII/01/01/2024.—In exercise of the powers conferred by sub-section (1) of section 4 of the \nBureau of Indian Standards Act, 2016 (11 of 2016) read with rule 6 of the Bureau of Indian Standards Rules, \n2018, as amended from time to time, the Governing Council of the Bureau, with the prior approval of the Central \nGovernment, hereby makes the amendment in the Bureau of Indian Standards Notification No. F. No.",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 12",
+    "content": "BS/13/01/2021 dated 16 March, 2022, with effect from the date of publication of this Notification. The Executive \nCommittee of the Bureau shall consist of the following members, namely:- \n(1) Director General, \n \n \n \n \n- Chairman \n Bureau of Indian Standards, \n \n \n \n \n (Ex-officio) \n Manak Bhavan, 9, Bahadur Shah Zafar Marg, \n New Delhi.",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 13",
+    "content": "(2) Additional Secretary and \n \n \n \n \n \n- Member \n Financial Adviser, \n \n Ministry of Consumer Affairs, Food and \n Public Distribution, \n Krishi Bhavan, New Delhi \n(3) Additional Secretary \n \n \n \n \n \n- Member \n to the Government of India, \n \n Department of Consumer Affairs, \n Krishi Bhavan, New Delhi \n(4) Joint Secretary, \n \n \n \n \n \n \n- Member \n Department for Promotion of Industry and \n Internal Trade (DPIIT), \n Ministry of Commerce & Industry \n \n \n \n \n \n \n \n(5) Joint Secretary, \n \n \n \n \n \n \n- Member \n Ministry of Electronics and Information Technology (MEITY) \n \n \n \n \n \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \n \n \nIndustries of UP \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \nIndustries of Tamil Nadu \n \n \n \n \n \nDr.",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 14",
+    "content": "Anant Sharma, \n \n \n \n \n \n- Member \nNational President, \nConsumer Confederation of India (CCI) \n(9) Director General, \n \n \n \n \n \n- Member \n \n Indian Electrical & Electronics Manufacturers’ Association \n \n (IEEMA) \n(10) \nProf. Venugopal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 15",
+    "content": "opal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 16",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \n(11) \nProf Rajat Moona, \n \n \n \n \n \n- Member \nDirector, \nIndian Institute of Technology (IIT), Gandhinagar \n(12) Director General, \n \n \n \n \n \n- Member \nBureau of Energy Efficiency (BEE) \n(13) Director, \n \nIndian Institute of Technology (IIT), Guwahati - Member \n \n \n \n ALKA, Secy. [ADVT. -III/4/Exty./350/2024-25] \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nUploaded by Dte.",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "energy",
+    "is_number": null,
+    "tags": [
+      "bee",
+      "star rating",
+      "energy"
+    ]
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 17",
+    "content": "of Printing at Government of India Press, Ring Road, Mayapuri, New Delhi-110064 \nand Published by the Controller of Publications, Delhi-110054. SARVESH \nKUMAR \nSRIVASTAVA\nDigitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Hallmarking Scheme — Part 18",
+    "content": "gitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_hallmarking_scheme.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 1",
+    "content": "4772 GI/2024 \nरजिस्ट्री सं. डी.एल.- 33004/99 \nREGD. No. D. L.-33004/99 \n \n \n \nxxxGIDHxxx \nxxxGIDExxx \nअसाधारण \nEXTRAORDINARY \nभाग III—खण् ड 4 \nPART III—Section 4 \nप्राजधकार से प्रकाजित \nPUBLISHED BY AUTHORITY \nभारतीय मानक ब्यूरो \n(उपभोक्ता मामले जिभाग) \nअजधसूचना \nनई दिल्ली, 18 िुलाई, 2024 \nएफ. सं.",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Huid Faq — Part 2",
+    "content": "बीएस/XIII/01/01/2024.—भारतीय मानक ब्यूरो की िासी पररषि, केंद्रीय सरकार के पूिव अनुमोिन से \nभारतीय मानक ब्यूरो अजधजनयम, 2016 (2016 का 11) की धारा 4 की उप-धारा (1) के साथ परित समय-समय पर \nयथा संिोजधत भारतीय मानक ब्यूरो जनयम, 2018 के जनयम 6 द्वारा प्रित्त िजक्तयों का प्रयोग करते हुए, इस अजधसूचना \nके प्रकाजित होने की तारीख से भारतीय मानक ब्यूरो अजधसूचना सं. एफ. सं.",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 3",
+    "content": "बीएस/13/01/2021 दिनांक 16 माचव, \n2022 में एति् द्वारा संिोधन करती है। ब् यूरो की कायवकाररणी सजमजत में जननलिजलजखत सिस्ट्य होंगे, अथावत्:- \nमहाजनिेिक, \n \n \n \n \n - अध्यक्ष \nभारतीय मानक ब्यूरो, \n \n \n \n \n (पिेन) \nमानक भिन, 9, बहािुर िाह िफर मागव, \nनई दिल्ली \nअपर सजचि और \n \n \n \n \n- सिस्ट्य \nजित्तीय सलाहकार, \n \n \nउपभोक्ता मामले, खाद्य एिं सािविजनक जितरण मंत्रालय \nकृजष भिन, नई दिल्ली \nसं. 581] \nनई दिल्ली, बृहस्ट् पजतिार, अगस्ट् त 1, 2024/श्रािण 10, 1946 \n \nNo.",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 4",
+    "content": "581] \nNEW DELHI, THURSDAY, AUGUST 1, 2024/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 5",
+    "content": "24/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 6",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \nअपर सजचि, भारत सरकार \n \n \n \n - सिस्ट्य \nउपभोक्ता मामले जिभाग \nकृजष भिन, नई दिल्ली \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \nउद्योग संिधवन और \nआंतररक व्यापार जिभाग (डीपीआईआईटी), \nिाजणज्य एिं उद्योग मंत्रालय \n \n \n \n \n \n \n \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \n \nइलेक्ट्रॉजनक्ट्स और सूचना प्रौद्योजगकी मंत्रालय \n \n(एमईआईटीिाई) \n \n \n \n \nसजचि या प्रधान सजचि \n \n \n \n - सिस्ट्य \nउत्तर प्रिेि के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nसजचि या प्रधान सजचि \n \n \n - सिस्ट्य \n तजमल नाडु के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nडॉ.",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 7",
+    "content": "अनंत िमाव, \n \n \n \n \n \n- सिस्ट्य \nराष्ट्रीय अध्यक्ष, \nभारतीय उपभोक्ता पररसंघ (सीसीआई) \n(9) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \n \n भारतीय इलेजक्ट्रकल एिं इलेक्ट्रॉजनक्ट्स जनमावता संघ \n \n (आईईईएमए) \n(10) \nप्रो.",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 8",
+    "content": "िेणुगोपाल अचंता, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nराष्ट्रीय भौजतक प्रयोगिाला (एनपीएल) \n(11) \nप्रोफेसर रित मूना, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nभारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गांधीनगर \n(12) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \nऊिाव िक्षता ब्यूरो (बीईई) \n(13) जनिेिक, \n भारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 9",
+    "content": "ान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 10",
+    "content": "[भाग III—खण् ड 4] \nभारत का रािपत्र : असाधारण \nBUREAU OF INDIAN STANDARDS \n(Department of Consumer Affairs) \nNOTIFICATION \nNew Delhi, the 18th July, 2024 \nF. No.",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Huid Faq — Part 11",
+    "content": "BS/XIII/01/01/2024.—In exercise of the powers conferred by sub-section (1) of section 4 of the \nBureau of Indian Standards Act, 2016 (11 of 2016) read with rule 6 of the Bureau of Indian Standards Rules, \n2018, as amended from time to time, the Governing Council of the Bureau, with the prior approval of the Central \nGovernment, hereby makes the amendment in the Bureau of Indian Standards Notification No. F. No.",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Huid Faq — Part 12",
+    "content": "BS/13/01/2021 dated 16 March, 2022, with effect from the date of publication of this Notification. The Executive \nCommittee of the Bureau shall consist of the following members, namely:- \n(1) Director General, \n \n \n \n \n- Chairman \n Bureau of Indian Standards, \n \n \n \n \n (Ex-officio) \n Manak Bhavan, 9, Bahadur Shah Zafar Marg, \n New Delhi.",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Huid Faq — Part 13",
+    "content": "(2) Additional Secretary and \n \n \n \n \n \n- Member \n Financial Adviser, \n \n Ministry of Consumer Affairs, Food and \n Public Distribution, \n Krishi Bhavan, New Delhi \n(3) Additional Secretary \n \n \n \n \n \n- Member \n to the Government of India, \n \n Department of Consumer Affairs, \n Krishi Bhavan, New Delhi \n(4) Joint Secretary, \n \n \n \n \n \n \n- Member \n Department for Promotion of Industry and \n Internal Trade (DPIIT), \n Ministry of Commerce & Industry \n \n \n \n \n \n \n \n(5) Joint Secretary, \n \n \n \n \n \n \n- Member \n Ministry of Electronics and Information Technology (MEITY) \n \n \n \n \n \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \n \n \nIndustries of UP \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \nIndustries of Tamil Nadu \n \n \n \n \n \nDr.",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Huid Faq — Part 14",
+    "content": "Anant Sharma, \n \n \n \n \n \n- Member \nNational President, \nConsumer Confederation of India (CCI) \n(9) Director General, \n \n \n \n \n \n- Member \n \n Indian Electrical & Electronics Manufacturers’ Association \n \n (IEEMA) \n(10) \nProf. Venugopal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Huid Faq — Part 15",
+    "content": "opal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 16",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \n(11) \nProf Rajat Moona, \n \n \n \n \n \n- Member \nDirector, \nIndian Institute of Technology (IIT), Gandhinagar \n(12) Director General, \n \n \n \n \n \n- Member \nBureau of Energy Efficiency (BEE) \n(13) Director, \n \nIndian Institute of Technology (IIT), Guwahati - Member \n \n \n \n ALKA, Secy. [ADVT. -III/4/Exty./350/2024-25] \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nUploaded by Dte.",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "energy",
+    "is_number": null,
+    "tags": [
+      "bee",
+      "star rating",
+      "energy"
+    ]
+  },
+  {
+    "title": "Bis Huid Faq — Part 17",
+    "content": "of Printing at Government of India Press, Ring Road, Mayapuri, New Delhi-110064 \nand Published by the Controller of Publications, Delhi-110054. SARVESH \nKUMAR \nSRIVASTAVA\nDigitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Huid Faq — Part 18",
+    "content": "gitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_huid_faq.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 1",
+    "content": "4772 GI/2024 \nरजिस्ट्री सं. डी.एल.- 33004/99 \nREGD. No. D. L.-33004/99 \n \n \n \nxxxGIDHxxx \nxxxGIDExxx \nअसाधारण \nEXTRAORDINARY \nभाग III—खण् ड 4 \nPART III—Section 4 \nप्राजधकार से प्रकाजित \nPUBLISHED BY AUTHORITY \nभारतीय मानक ब्यूरो \n(उपभोक्ता मामले जिभाग) \nअजधसूचना \nनई दिल्ली, 18 िुलाई, 2024 \nएफ. सं.",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 2",
+    "content": "बीएस/XIII/01/01/2024.—भारतीय मानक ब्यूरो की िासी पररषि, केंद्रीय सरकार के पूिव अनुमोिन से \nभारतीय मानक ब्यूरो अजधजनयम, 2016 (2016 का 11) की धारा 4 की उप-धारा (1) के साथ परित समय-समय पर \nयथा संिोजधत भारतीय मानक ब्यूरो जनयम, 2018 के जनयम 6 द्वारा प्रित्त िजक्तयों का प्रयोग करते हुए, इस अजधसूचना \nके प्रकाजित होने की तारीख से भारतीय मानक ब्यूरो अजधसूचना सं. एफ. सं.",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 3",
+    "content": "बीएस/13/01/2021 दिनांक 16 माचव, \n2022 में एति् द्वारा संिोधन करती है। ब् यूरो की कायवकाररणी सजमजत में जननलिजलजखत सिस्ट्य होंगे, अथावत्:- \nमहाजनिेिक, \n \n \n \n \n - अध्यक्ष \nभारतीय मानक ब्यूरो, \n \n \n \n \n (पिेन) \nमानक भिन, 9, बहािुर िाह िफर मागव, \nनई दिल्ली \nअपर सजचि और \n \n \n \n \n- सिस्ट्य \nजित्तीय सलाहकार, \n \n \nउपभोक्ता मामले, खाद्य एिं सािविजनक जितरण मंत्रालय \nकृजष भिन, नई दिल्ली \nसं. 581] \nनई दिल्ली, बृहस्ट् पजतिार, अगस्ट् त 1, 2024/श्रािण 10, 1946 \n \nNo.",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 4",
+    "content": "581] \nNEW DELHI, THURSDAY, AUGUST 1, 2024/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 5",
+    "content": "24/SHRAVANA 10, 1946 \n \nसी.जी.-डी.एल.-अ.-01082024-255987\nCG-DL-E-01082024-255987",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 6",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \nअपर सजचि, भारत सरकार \n \n \n \n - सिस्ट्य \nउपभोक्ता मामले जिभाग \nकृजष भिन, नई दिल्ली \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \nउद्योग संिधवन और \nआंतररक व्यापार जिभाग (डीपीआईआईटी), \nिाजणज्य एिं उद्योग मंत्रालय \n \n \n \n \n \n \n \nसंयुक्त सजचि, \n \n \n \n \n \n - सिस्ट्य \n \nइलेक्ट्रॉजनक्ट्स और सूचना प्रौद्योजगकी मंत्रालय \n \n(एमईआईटीिाई) \n \n \n \n \nसजचि या प्रधान सजचि \n \n \n \n - सिस्ट्य \nउत्तर प्रिेि के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nसजचि या प्रधान सजचि \n \n \n - सिस्ट्य \n तजमल नाडु के उद्योग का प्रिासजनक \nजनयंत्रक जिभाग \nडॉ.",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 7",
+    "content": "अनंत िमाव, \n \n \n \n \n \n- सिस्ट्य \nराष्ट्रीय अध्यक्ष, \nभारतीय उपभोक्ता पररसंघ (सीसीआई) \n(9) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \n \n भारतीय इलेजक्ट्रकल एिं इलेक्ट्रॉजनक्ट्स जनमावता संघ \n \n (आईईईएमए) \n(10) \nप्रो.",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 8",
+    "content": "िेणुगोपाल अचंता, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nराष्ट्रीय भौजतक प्रयोगिाला (एनपीएल) \n(11) \nप्रोफेसर रित मूना, \n \n \n \n \n \n- सिस्ट्य \nजनिेिक, \nभारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गांधीनगर \n(12) महाजनिेिक, \n \n \n \n \n \n \n- सिस्ट्य \nऊिाव िक्षता ब्यूरो (बीईई) \n(13) जनिेिक, \n भारतीय प्रौद्योजगकी संस्ट्थान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 9",
+    "content": "ान (आईआईटी), गुिाहाटी \n - सिस्ट्य \nअलका, सजचि \n[जिज्ञापन-III/4/असा./350/2024-25]",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 10",
+    "content": "[भाग III—खण् ड 4] \nभारत का रािपत्र : असाधारण \nBUREAU OF INDIAN STANDARDS \n(Department of Consumer Affairs) \nNOTIFICATION \nNew Delhi, the 18th July, 2024 \nF. No.",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 11",
+    "content": "BS/XIII/01/01/2024.—In exercise of the powers conferred by sub-section (1) of section 4 of the \nBureau of Indian Standards Act, 2016 (11 of 2016) read with rule 6 of the Bureau of Indian Standards Rules, \n2018, as amended from time to time, the Governing Council of the Bureau, with the prior approval of the Central \nGovernment, hereby makes the amendment in the Bureau of Indian Standards Notification No. F. No.",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 12",
+    "content": "BS/13/01/2021 dated 16 March, 2022, with effect from the date of publication of this Notification. The Executive \nCommittee of the Bureau shall consist of the following members, namely:- \n(1) Director General, \n \n \n \n \n- Chairman \n Bureau of Indian Standards, \n \n \n \n \n (Ex-officio) \n Manak Bhavan, 9, Bahadur Shah Zafar Marg, \n New Delhi.",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "standards",
+    "is_number": null,
+    "tags": [
+      "is standard",
+      "indian standard"
+    ]
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 13",
+    "content": "(2) Additional Secretary and \n \n \n \n \n \n- Member \n Financial Adviser, \n \n Ministry of Consumer Affairs, Food and \n Public Distribution, \n Krishi Bhavan, New Delhi \n(3) Additional Secretary \n \n \n \n \n \n- Member \n to the Government of India, \n \n Department of Consumer Affairs, \n Krishi Bhavan, New Delhi \n(4) Joint Secretary, \n \n \n \n \n \n \n- Member \n Department for Promotion of Industry and \n Internal Trade (DPIIT), \n Ministry of Commerce & Industry \n \n \n \n \n \n \n \n(5) Joint Secretary, \n \n \n \n \n \n \n- Member \n Ministry of Electronics and Information Technology (MEITY) \n \n \n \n \n \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \n \n \nIndustries of UP \nSecretary or Principal Secretary of the \n \n \n \n- Member \nDepartment having administrative control over \n \nIndustries of Tamil Nadu \n \n \n \n \n \nDr.",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 14",
+    "content": "Anant Sharma, \n \n \n \n \n \n- Member \nNational President, \nConsumer Confederation of India (CCI) \n(9) Director General, \n \n \n \n \n \n- Member \n \n Indian Electrical & Electronics Manufacturers’ Association \n \n (IEEMA) \n(10) \nProf. Venugopal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "crs",
+    "is_number": null,
+    "tags": [
+      "crs",
+      "r-number",
+      "electronics",
+      "registration"
+    ]
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 15",
+    "content": "opal Achanta, \n \n \n \n \n- Member \n \nDirector, \nNational Physical Laboratory (NPL)",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 16",
+    "content": "THE GAZETTE OF INDIA : EXTRAORDINARY \n [PART III—SEC.4] \n(11) \nProf Rajat Moona, \n \n \n \n \n \n- Member \nDirector, \nIndian Institute of Technology (IIT), Gandhinagar \n(12) Director General, \n \n \n \n \n \n- Member \nBureau of Energy Efficiency (BEE) \n(13) Director, \n \nIndian Institute of Technology (IIT), Guwahati - Member \n \n \n \n ALKA, Secy. [ADVT. -III/4/Exty./350/2024-25] \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nUploaded by Dte.",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "energy",
+    "is_number": null,
+    "tags": [
+      "bee",
+      "star rating",
+      "energy"
+    ]
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 17",
+    "content": "of Printing at Government of India Press, Ring Road, Mayapuri, New Delhi-110064 \nand Published by the Controller of Publications, Delhi-110054. SARVESH \nKUMAR \nSRIVASTAVA\nDigitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Product Certification Scheme1 — Part 18",
+    "content": "gitally signed by \nSARVESH KUMAR \nSRIVASTAVA \nDate: 2024.08.01 22:38:46 \n+05'30'",
+    "source": "data/raw/pdfs/bis_product_certification_scheme1.pdf",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Mandatory Products List — Part 1",
+    "content": "सप्ताह का मानक\n\nमाह का मानक\n\nनए मानक\n\nसंशोधित मानक\n\nअपने मानक के बारे में जाने\n\nस्नैप\n\nअनिवार्य प्रमाणन के अंतर्गत उत्पाद\n\nमानक विकास और भवन विनियम\n\nबीआईएस टॉक\n\nमानक मंच\n\nमानक गीत\n\nराजभाषा हिन्दी\n\nबीआईएस पुस्तकालय\n\nमासिक बीआईएस समाचार पत्र\n\nहमें संपर्क करें\n\nबीआईएस पर फीडबैक \nप्रस्तुत करें\n\nबीआईएस के फेसबुक पेज \nपर लाइक करें\n\nबीआईएस के ट्विटर पेज \nपर फॉलो करें\n\nबीआईएस के लिंक्डइन पेज \nपर फॉलो करें\n\nबीआईएस के यूट्यूब पेज \nपर सब्सक्राइब करे\n\nबीआईएस के इंस्टाग्राम पेज \nपर फॉलो करें\n\nसिंहावलोकन",
+    "source": "data/raw/html/bis_mandatory_products_list.html",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Mandatory Products List — Part 2",
+    "content": "्यूब पेज \nपर सब्सक्राइब करे\n\nबीआईएस के इंस्टाग्राम पेज \nपर फॉलो करें\n\nसिंहावलोकन\n\nअनिवार्य प्रमाणन के तहत उत्पाद\n\nप्रमाणन प्रक्रिया\n\nउत्पाद विशिष्ट दिशानिर्देश\n\nउत्पाद विशिष्ट जानकारी\n\nशुल्क\n\nसरलीकृत प्रक्रिया के अंतर्गत उत्पादों की सूची\n\nपरीक्षण सुविधाएं\n\nऑनलाइन कीजिए\n\nऑनलाइन सूचना\n\nआयातक\n\nइको मार्क\n\nभारतीय मानक के लिए इको मार्क\n\nअक्सर पूछे जाने वाले प्रश्नस\n\nहमें संपर्क करेंं\n\nउत्पाद प्रमाणन\nअनिवार्य प्रमाणन के तहत...\n\nअनिवार्य प्रमाणन के तहत उत्पाद",
+    "source": "data/raw/html/bis_mandatory_products_list.html",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Mandatory Products List — Part 3",
+    "content": "करेंं\n\nउत्पाद प्रमाणन\nअनिवार्य प्रमाणन के तहत...\n\nअनिवार्य प्रमाणन के तहत उत्पाद\n\nबीआईएस प्रमाणन योजना मूलतः स्वैच्छिक है। हालाँकि, कई उत्पादों के लिए भारतीय मानकों का अनुपालन केंद्र सरकार द्वारा विभिन्न विचारों के तहत अनिवार्य बना दिया गया है। सार्वजनिक हित, मानव, पशु या पौधों के स्वास्थ्य की सुरक्षा, पर्यावरण की सुरक्षा, अनुचित व्यापार प्रथाओं की रोकथाम और राष्ट्रीय सुरक्षा। ऐसे उत्पादों के लिए, केंद्र सरकार क्यूसीओ जारी करने के माध्यम से बीआईएस से लाइसेंस या अनुरूपता प्रमाणपत्र (सीओसी) के तहत मानक चिह्न के अनिवार्य उपयोग का निर्देश देती है।",
+    "source": "data/raw/html/bis_mandatory_products_list.html",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Bis Mandatory Products List — Part 4",
+    "content": "रूपता प्रमाणपत्र (सीओसी) के तहत मानक चिह्न के अनिवार्य उपयोग का निर्देश देती है।\n\nगुणवत्ता नियंत्रण आदेशों (क्यूसीओ) पर मार्गदर्शन दस्तावेज़\n(आकार – 695 केबी)\n\nअनिवार्य प्रमाणन के अंतर्गत आने वाले उत्पाद\n\nयोजना – I (\nमार्क योजना)\n\nयोजना – II (पंजीकरण योजना)\n\nयोजना – IV (अनुरूप प्रमाण पत्र)\n\nयोजना – एक्स (प्रमाणन)\n\nआगामी क्यूसीओएस – अधिसूचित और कार्यान्वयन के लिए निर्धारित तिथि\n\nस्वदेशी भारतीय मानक – निःशुल्क डाउनलोड\n\nLast Updated on February 25, 2026",
+    "source": "data/raw/html/bis_mandatory_products_list.html",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  },
+  {
+    "title": "Manakonline About",
+    "content": "Insert title here\n\nYou are either not logged in or your session has expired......\n\nKindly Login again ...\n\nClick here to go to BIS",
+    "source": "data/raw/html/manakonline_about.html",
+    "category": "general",
+    "is_number": null,
+    "tags": []
+  }
+]
