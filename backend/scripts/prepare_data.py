@@ -46,6 +46,16 @@ from bs4 import BeautifulSoup
 from rich.console import Console
 from rich.table import Table
 
+from app.data.chunking import (
+    DEFAULT_CHUNK_OVERLAP,
+    DEFAULT_CHUNK_SIZE,
+    clean_text,
+    chunk_text,
+    detect_category,
+    detect_tags,
+    extract_is_number,
+)
+
 console = Console()
 
 # ── Directories ───────────────────────────────────────────────────────────────
@@ -56,133 +66,7 @@ HTML_DIR = RAW_DIR / "html"
 OUTPUT_FILE = PROJECT_ROOT / "data" / "bis_knowledge.json"
 IS_STANDARDS_OUTPUT = PROJECT_ROOT / "data" / "is_standards_map.json"
 CURATED_KNOWLEDGE_FILE = PROJECT_ROOT / "data" / "curated_bis_knowledge.json"
-
-# ── Chunking config ───────────────────────────────────────────────────────────
-
-DEFAULT_CHUNK_SIZE = 500     # characters per chunk
-DEFAULT_CHUNK_OVERLAP = 80   # overlap between consecutive chunks
-
-# ── Category detection ────────────────────────────────────────────────────────
-
-CATEGORY_RULES: list[tuple[list[str], str]] = [
-    (["hallmark", "huid", "gold", "jewellery", "jewelry", "ahc"], "hallmarking"),
-    (["crs", "r-number", "electronics", "it product", "mobile", "laptop", "led"], "crs"),
-    (["isi mark", "cm/l", "cml", "compulsory", "mandatory", "product certification"], "marks"),
-    (["fmcs", "foreign manufacturer", "import"], "fmcs"),
-    (["bee", "star rating", "energy efficiency", "bee label"], "energy"),
-    (["lpg", "gas cylinder", "regulator", "petroleum"], "safety"),
-    (["cable", "wire", "electrical", "mcb", "socket", "plug"], "electrical"),
-    (["cement", "construction", "steel", "building material"], "construction"),
-    (["toy", "helmet", "child", "children"], "safety"),
-    (["certification process", "how to apply", "license", "application fee", "factory audit"], "compliance"),
-    (["is standard", "indian standard", "is number", "bureau of indian standards"], "standards"),
-]
-
-IS_NUMBER_RE = re.compile(r"\bIS[:\s]?(\d{3,6})\b", re.IGNORECASE)
-
-TAG_RULES: dict[str, list[str]] = {
-    "hallmarking": ["hallmark", "huid", "gold", "jewellery"],
-    "crs": ["crs", "r-number", "electronics", "registration"],
-    "marks": ["isi", "cml", "certification", "mark"],
-    "compliance": ["certification", "process", "apply", "license"],
-    "electrical": ["cable", "electrical", "mcb", "switch"],
-    "safety": ["safety", "mandatory", "critical"],
-    "fmcs": ["fmcs", "foreign", "import"],
-    "energy": ["bee", "star rating", "energy"],
-    "standards": ["is standard", "indian standard"],
-    "construction": ["cement", "steel", "construction"],
-}
-
-
-def detect_category(text: str) -> str:
-    text_lower = text.lower()
-    for keywords, category in CATEGORY_RULES:
-        if any(kw in text_lower for kw in keywords):
-            return category
-    return "general"
-
-
-def detect_tags(text: str, category: str) -> list[str]:
-    tags = TAG_RULES.get(category, []).copy()
-    # Add any IS numbers found
-    for m in IS_NUMBER_RE.finditer(text):
-        tag = f"IS {m.group(1)}"
-        if tag not in tags:
-            tags.append(tag)
-    return tags[:8]  # cap
-
-
-def extract_is_number(text: str) -> str | None:
-    m = IS_NUMBER_RE.search(text)
-    return f"IS {m.group(1)}" if m else None
-
-
-# ── Text cleaning ─────────────────────────────────────────────────────────────
-
-def clean_text(text: str) -> str:
-    """Remove noise, normalize whitespace."""
-    # Remove page numbers (e.g. "Page 4 of 22")
-    text = re.sub(r"Page\s+\d+\s+of\s+\d+", "", text, flags=re.IGNORECASE)
-    # Remove excessive whitespace
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    text = re.sub(r"[ \t]{2,}", " ", text)
-    # Remove header/footer noise (lines that are just numbers or short symbols)
-    lines = [l for l in text.splitlines() if len(l.strip()) > 3 or l.strip() == ""]
-    text = "\n".join(lines)
-    return text.strip()
-
-
-# ── Chunking ──────────────────────────────────────────────────────────────────
-
-def chunk_text(
-    text: str,
-    chunk_size: int = DEFAULT_CHUNK_SIZE,
-    overlap: int = DEFAULT_CHUNK_OVERLAP,
-) -> list[str]:
-    """
-    Split text into overlapping chunks.
-    Tries to split on paragraph boundaries first, then sentence boundaries.
-    """
-    # Try paragraph splits first
-    paragraphs = [p.strip() for p in re.split(r"\n\n+", text) if p.strip()]
-
-    chunks: list[str] = []
-    current = ""
-
-    for para in paragraphs:
-        # If adding this paragraph keeps us under chunk_size
-        if len(current) + len(para) + 2 <= chunk_size:
-            current = (current + "\n\n" + para).strip()
-        else:
-            # Save current chunk if non-empty
-            if current:
-                chunks.append(current)
-            # If the paragraph itself is too long, split it by sentences
-            if len(para) > chunk_size:
-                sentences = re.split(r"(?<=[.!?])\s+", para)
-                sub = ""
-                for sent in sentences:
-                    if len(sub) + len(sent) + 1 <= chunk_size:
-                        sub = (sub + " " + sent).strip()
-                    else:
-                        if sub:
-                            chunks.append(sub)
-                        sub = sent
-                if sub:
-                    chunks.append(sub)
-                # Start new current with overlap from last chunk
-                current = chunks[-1][-overlap:] if chunks else ""
-            else:
-                # Start new chunk with overlap
-                overlap_text = current[-overlap:] if current else ""
-                current = (overlap_text + "\n\n" + para).strip()
-
-    if current:
-        chunks.append(current)
-
-    # Filter out very short chunks (likely noise)
-    return [c for c in chunks if len(c) >= 80]
-
+CRAWLED_KNOWLEDGE_FILE = PROJECT_ROOT / "data" / "crawled_knowledge.json"
 
 # ── PDF extraction ────────────────────────────────────────────────────────────
 
@@ -338,6 +222,7 @@ def main() -> None:
     parser.add_argument("--chunk-size", type=int, default=DEFAULT_CHUNK_SIZE)
     parser.add_argument("--overlap", type=int, default=DEFAULT_CHUNK_OVERLAP)
     parser.add_argument("--preview", action="store_true", help="Print first chunk of each doc")
+    parser.add_argument("--include-crawled", action="store_true", help="Merge data/crawled_knowledge.json from crawl_bis_sites.py")
     args = parser.parse_args()
 
     console.rule("[bold]BIS Data Preparation[/bold]")
@@ -358,17 +243,28 @@ def main() -> None:
         except Exception as e:
             console.print(f"[yellow]Could not load curated knowledge: {e}[/yellow]")
 
-    if not pdfs and not htmls and not curated_records:
-        console.print(f"\n[yellow]No files found in data/raw/ and no curated data.[/yellow]")
+    crawled_records: list[dict] = []
+    if getattr(args, "include_crawled", False) and CRAWLED_KNOWLEDGE_FILE.exists():
+        try:
+            with open(CRAWLED_KNOWLEDGE_FILE, encoding="utf-8") as f:
+                crawled_records = json.load(f)
+            console.print(f"Loaded [bold]{len(crawled_records)}[/bold] crawled BIS knowledge chunks")
+        except Exception as e:
+            console.print(f"[yellow]Could not load crawled knowledge: {e}[/yellow]")
+
+    if not pdfs and not htmls and not curated_records and not crawled_records:
+        console.print(f"\n[yellow]No files found in data/raw/, no curated data, and no crawled data.[/yellow]")
         console.print(f"\nOptions:")
         console.print(f"  1. Run [cyan]python scripts/download_bis_docs.py[/cyan] then run this script again")
         console.print(f"  2. Put PDFs in [cyan]{PDF_DIR}[/cyan] and HTML in [cyan]{HTML_DIR}[/cyan]")
         console.print(f"  3. Ensure [cyan]{CURATED_KNOWLEDGE_FILE}[/cyan] exists for baseline RAG content")
+        console.print(f"  4. Run [cyan]python scripts/crawl_bis_sites.py[/cyan] then [cyan]prepare_data.py --include-crawled[/cyan]")
         sys.exit(0)
 
     console.print(f"Found [bold]{len(pdfs)}[/bold] PDFs, [bold]{len(htmls)}[/bold] HTML files\n")
 
     all_records: list[dict] = list(curated_records)
+    all_records.extend(crawled_records)
 
     # Process PDFs
     if pdfs:
@@ -417,6 +313,7 @@ def main() -> None:
     table.add_column("Value", style="green")
     table.add_row("Total chunks", str(len(all_records)))
     table.add_row("Curated chunks", str(len(curated_records)))
+    table.add_row("Crawled chunks", str(len(crawled_records)))
     table.add_row("PDF files processed", str(len(pdfs)))
     table.add_row("HTML files processed", str(len(htmls)))
     table.add_row("IS standards found", str(len(standards_map)))
@@ -434,7 +331,8 @@ def main() -> None:
 
     console.print(f"\n[bold green]✓ Ready to seed![/bold green]")
     console.print("Next step:")
-    console.print("  [cyan]python scripts/seed_vector_db.py[/cyan]")
+    console.print("  [cyan]python scripts/seed_vector_db.py --clear[/cyan]")
+    console.print("  (Use [cyan]--clear[/cyan] to replace existing vectors when you have new/crawled content)")
     console.print("  [cyan]python scripts/seed_vector_db.py --collection is_standards --source data/is_standards_map.json[/cyan]")
 
 
