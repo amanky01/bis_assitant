@@ -14,13 +14,29 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 def _default_cors_origins() -> list[str]:
-    """Used when CORS_ORIGINS is unset. Override via env on Render / production."""
+    """Built-in browser origins always merged with CORS_ORIGINS (see merge_cors_origins_with_defaults)."""
     return [
         "http://localhost:3000",
         "https://bis-assistant.mindsqubit.com",
+        "https://www.bis-assistant.mindsqubit.com",
         "https://bis-assitant.vercel.app",
         "https://bis-assistant.vercel.app",
     ]
+
+
+def merge_cors_origins_with_defaults(user_origins: list[str]) -> list[str]:
+    """
+    Union of built-in frontends + CORS_ORIGINS from env.
+
+    Render often sets CORS_ORIGINS to only the Vercel URL; that would override pydantic
+    defaults and block the custom domain. Merging keeps mindsqubit.com allowed.
+    """
+    seen: dict[str, None] = {}
+    for raw in (*_default_cors_origins(), *user_origins):
+        o = raw.strip().rstrip("/")
+        if o:
+            seen.setdefault(o, None)
+    return list(seen.keys())
 
 
 class Settings(BaseSettings):

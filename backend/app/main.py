@@ -22,7 +22,7 @@ from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError
 
 from app.api.v1.auth import router as auth_router
 from app.api.v1.chat import router as chat_router
-from app.core.config import get_settings
+from app.core.config import get_settings, merge_cors_origins_with_defaults
 from app.core.exceptions import (
     AuthError,
     BISError,
@@ -63,9 +63,11 @@ def create_app() -> FastAPI:
     )
 
     # ── CORS ──────────────────────────────────────────────────────────────
+    cors_allow = merge_cors_origins_with_defaults(settings.cors_origins)
+    logger.info("CORS allow_origins: %d host(s) configured", len(cors_allow))
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.cors_origins,
+        allow_origins=cors_allow,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
