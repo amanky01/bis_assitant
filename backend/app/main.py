@@ -122,12 +122,20 @@ def create_app() -> FastAPI:
             "status": "ok",
             "env": settings.app_env,
             "db": db_status,
-            "llm": settings.gemini_model,
+            "llm_provider": settings.llm_provider,
+            "llm": (
+                settings.gemini_model
+                if settings.llm_provider == "gemini"
+                else settings.groq_model
+            ),
             "embedding": settings.gemini_embedding_model,
             "agent_max_iterations": settings.agent_max_iterations,
             "session_window": settings.session_window_size,
             "allowed_domains": settings.allowed_domains,
         }
+    @app.get("/")
+    async def root():
+        return {"message": "Welome to BIS Assistant" }
 
     return app
 

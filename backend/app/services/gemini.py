@@ -1,7 +1,7 @@
 """
 app/services/gemini.py
 ───────────────────────
-Gemini LLM and embedding service.
+Gemini embeddings + configurable chat LLM (Gemini or Groq via env).
 
   - task_type="retrieval_query" for search; seed uses task_type="retrieval_document".
   - output_dimensionality must match stored docs and Atlas index (e.g. 3072).
@@ -14,9 +14,12 @@ import asyncio
 import hashlib
 import time
 from functools import lru_cache
+from typing import Literal
 
 import google.generativeai as genai
+from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 
 from app.core.config import get_settings
 from app.core.exceptions import EmbeddingError
@@ -26,18 +29,39 @@ logger = get_logger(__name__)
 settings = get_settings()
 
 
-@lru_cache(maxsize=1)
-def get_llm() -> ChatGoogleGenerativeAI:
-    llm = ChatGoogleGenerativeAI(
-        model=settings.gemini_model,
-        google_api_key=settings.gemini_api_key,
-        temperature=settings.agent_temperature,
-        max_output_tokens=2048,
-        streaming=True,
-        convert_system_message_to_human=True,
-    )
-    logger.info(f"Gemini LLM ready: {settings.gemini_model}")
-    return llm
+@lru_cache(maxsize=8)
+def _build_llm(provider: Literal["gemini", "groq"], model: str) -> BaseChatModel:
+    s = get_settings()
+    if provider == "gemini":
+        llm = ChatGoogleGenerativeAI(
+            model=model,
+            google_api_key=s.gemini_api_key,
+            temperature=s.agent_temperature,
+            max_output_tokens=2048,
+            streaming=True,
+            convert_system_message_to_human=True,
+        )
+        logger.info(f"LLM ready (gemini): {model}")
+        return llm
+    if provider == "groq":
+        if not (s.groq_api_key or "").strip():
+            raise ValueError("GROQ_API_KEY is required when LLM_PROVIDER=groq")
+        llm = ChatGroq(
+            model=model,
+            groq_api_key=s.groq_api_key,
+            temperature=s.agent_temperature,
+            max_tokens=2048,
+            streaming=True,
+        )
+        logger.info(f"LLM ready (groq): {model}")
+        return llm
+    raise ValueError(f"Unknown LLM_PROVIDER: {provider}")
+
+
+def get_llm() -> BaseChatModel:
+    s = get_settings()
+    model = s.gemini_model if s.llm_provider == "gemini" else s.groq_model
+    return _build_llm(s.llm_provider, model)
 
 
 class GeminiEmbeddingService:

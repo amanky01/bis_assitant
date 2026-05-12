@@ -124,18 +124,24 @@ Use Indian English where it feels natural. Stay grounded in facts."""
 # ── Graph singleton ───────────────────────────────────────────────────────────
 
 _graph = None
+_graph_key: tuple[str, str] | None = None
 
 
 def _get_graph():
-    global _graph
-    if _graph is None:
+    global _graph, _graph_key
+    key = (
+        settings.llm_provider,
+        settings.gemini_model if settings.llm_provider == "gemini" else settings.groq_model,
+    )
+    if _graph is None or _graph_key != key:
         llm = get_llm()
         _graph = create_react_agent(
             llm,
             tools=ALL_TOOLS,
             state_modifier=SYSTEM_PROMPT,
         )
-        logger.info("LangGraph ReAct agent compiled")
+        _graph_key = key
+        logger.info("LangGraph ReAct agent compiled (provider=%s model=%s)", key[0], key[1])
     return _graph
 
 

@@ -4,11 +4,23 @@ app/core/config.py
 All settings come from environment variables.
 Import get_settings() everywhere — never os.environ directly.
 """
+import json
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import Field, field_validator
+from pydantic import Field, field_validator, model_validator
+from typing_extensions import Self
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+def _default_cors_origins() -> list[str]:
+    """Used when CORS_ORIGINS is unset. Override via env on Render / production."""
+    return [
+        "http://localhost:3000",
+        "https://bis-assistant.mindsqubit.com",
+        "https://bis-assitant.vercel.app",
+        "https://bis-assistant.vercel.app",
+    ]
 
 
 class Settings(BaseSettings):
@@ -22,7 +34,7 @@ class Settings(BaseSettings):
     # ── App ───────────────────────────────────────────────────────────────
     app_env: Literal["development", "staging", "production"] = "development"
     log_level: str = "INFO"
-    cors_origins: list[str] = ["http://localhost:3000"]
+    cors_origins: list[str] = Field(default_factory=_default_cors_origins)
 
     # ── MongoDB ───────────────────────────────────────────────────────────
     mongodb_uri: str = Field(..., alias="MONGO_URI")
@@ -35,7 +47,12 @@ class Settings(BaseSettings):
     col_users: str = "users"
     col_standards: str = "is_standards"
 
-    # ── Gemini ────────────────────────────────────────────────────────────
+    # ── LLM (inference; embeddings stay on Gemini below) ───────────────────
+    llm_provider: Literal["gemini", "groq"] = Field(default="gemini", alias="LLM_PROVIDER")
+    groq_api_key: str = Field(default="", alias="GROQ_API_KEY")
+    groq_model: str = Field(default="llama-3.3-70b-versatile", alias="GROQ_MODEL")
+
+    # ── Gemini (API key required for embeddings; also used when LLM_PROVIDER=gemini) ─
     gemini_api_key: str
     gemini_model: str = "gemini-2.0-flash"
     gemini_embedding_model: str = Field(default="models/gemini-embedding-001", alias="GEMINI_EMBEDDING_MODEL")
@@ -81,11 +98,25 @@ class Settings(BaseSettings):
     pre_inject_rag_top_k: int = Field(default=5, ge=1, le=15)
 
     # ── Validators ────────────────────────────────────────────────────────
+    @model_validator(mode="after")
+    def validate_llm_provider(self) -> Self:
+        if self.llm_provider == "groq" and not (self.groq_api_key or "").strip():
+            raise ValueError("GROQ_API_KEY is required when LLM_PROVIDER=groq")
+        return self
+
     @field_validator("cors_origins", "allowed_domains", mode="before")
     @classmethod
     def parse_list(cls, v: str | list) -> list[str]:
         if isinstance(v, str):
-            return [x.strip() for x in v.split(",") if x.strip()]
+            s = v.strip()
+            if s.startswith("[") and s.endswith("]"):
+                try:
+                    parsed = json.loads(s)
+                    if isinstance(parsed, list):
+                        return [str(x).strip() for x in parsed if str(x).strip()]
+                except json.JSONDecodeError:
+                    pass
+            return [x.strip() for x in s.split(",") if x.strip()]
         return v
 
     # ── Computed properties ───────────────────────────────────────────────
