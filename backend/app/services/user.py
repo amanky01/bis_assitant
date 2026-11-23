@@ -6,9 +6,12 @@ No email verification — JWT issued immediately on register.
 """
 from __future__ import annotations
 
+import asyncio
 import uuid
 from datetime import datetime, timezone
 from typing import Any
+
+from pymongo.errors import DuplicateKeyError
 
 from app.core.config import get_settings
 from app.core.exceptions import AuthError, UserExistsError
@@ -28,17 +31,21 @@ class UserService:
         col = MongoDB.col(settings.col_users)
 
         if await col.find_one({"email": email.lower()}):
-            raise UserExistsError(f"Email already registered: {email}")
+            raise UserExistsError("Email already registered")
 
         user_id = str(uuid.uuid4())
         now = datetime.now(timezone.utc)
 
-        await col.insert_one({
-            "user_id": user_id,
-            "email": email.lower(),
-            "password_hash": hash_password(password),
-            "created_at": now,
-        })
+        password_hash = await asyncio.to_thread(hash_password, password)
+        try:
+            await col.insert_one({
+                "user_id": user_id,
+                "email": email.lower(),
+                "password_hash": password_hash,
+                "created_at": now,
+            })
+        except DuplicateKeyError:
+            raise UserExistsError("Email already registered") from None
 
         token = create_access_token({"sub": user_id, "email": email.lower()})
         return {"user_id": user_id, "email": email.lower(), "access_token": token}
@@ -51,7 +58,7 @@ class UserService:
         col = MongoDB.col(settings.col_users)
         user = await col.find_one({"email": email.lower()})
 
-        if not user or not verify_password(password, user["password_hash"]):
+        if not user or not await asyncio.to_thread(verify_password, password, user["password_hash"]):
             raise AuthError("Invalid email or password")
 
         token = create_access_token(

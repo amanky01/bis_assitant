@@ -24,6 +24,9 @@ from urllib.parse import urljoin, urlparse
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from app.core.exceptions import DomainNotAllowedError, ScraperError
+from app.core.official_http import fetch_official
+
 PDF_DIR = PROJECT_ROOT / "data" / "raw" / "pdfs"
 HTML_DIR = PROJECT_ROOT / "data" / "raw" / "html"
 
@@ -165,7 +168,6 @@ def _extract_pdf_links_from_html(html_bytes: bytes, base_url: str) -> list[str]:
 
 
 async def download_one(
-    client: httpx.AsyncClient,
     filename: str,
     url: str,
     doc_type: str,
@@ -193,31 +195,22 @@ async def download_one(
 
     try:
         await asyncio.sleep(0.5)
-        resp = await client.get(url, headers=HEADERS, follow_redirects=True, timeout=30.0)
-
-        if resp.status_code == 404:
-            result["status"] = "not_found"
-            result["error"] = "404 — URL may have changed on BIS website"
-            return result
-
-        if resp.status_code != 200:
-            result["status"] = "error"
-            result["error"] = f"HTTP {resp.status_code}"
-            return result
-
-        content = resp.content
+        content, final_url = await fetch_official(url, allow_redirects=True, max_bytes=8_000_000)
 
         if doc_type == "pdf":
             if not content.startswith(b"%PDF"):
                 # PDF URL returned HTML: try to find a PDF link on the page
-                pdf_links = _extract_pdf_links_from_html(content, url)
+                pdf_links = _extract_pdf_links_from_html(content, final_url)
                 for pdf_url in pdf_links:
                     await asyncio.sleep(0.5)
-                    r2 = await client.get(pdf_url, headers=HEADERS, follow_redirects=True, timeout=30.0)
-                    if r2.status_code == 200 and r2.content.startswith(b"%PDF") and len(r2.content) >= 5000:
-                        dest.write_bytes(r2.content)
+                    try:
+                        pdf, _ = await fetch_official(pdf_url, allow_redirects=True, max_bytes=8_000_000)
+                    except (httpx.HTTPError, OSError, TimeoutError, DomainNotAllowedError, ScraperError):
+                        continue
+                    if pdf.startswith(b"%PDF") and len(pdf) >= 5000:
+                        dest.write_bytes(pdf)
                         result["status"] = "ok"
-                        result["size"] = len(r2.content)
+                        result["size"] = len(pdf)
                         return result
                 # No usable PDF: save HTML as fallback so we have content for RAG
                 fallback_name = Path(filename).stem + "_fallback.html"
@@ -247,10 +240,13 @@ async def download_one(
         result["status"] = "ok"
         result["size"] = len(content)
 
-    except httpx.TimeoutException:
+    except httpx.HTTPStatusError as exc:
+        result["status"] = "not_found" if exc.response.status_code == 404 else "error"
+        result["error"] = f"HTTP {exc.response.status_code}"
+    except (httpx.TimeoutException, TimeoutError):
         result["status"] = "error"
-        result["error"] = "Timeout (30s) — BIS site may be slow, try again"
-    except httpx.RequestError as exc:
+        result["error"] = "Timeout (20s) — BIS site may be slow, try again"
+    except (httpx.RequestError, OSError, DomainNotAllowedError, ScraperError) as exc:
         result["status"] = "error"
         result["error"] = str(exc)
 
@@ -275,34 +271,33 @@ async def main(dry_run: bool, skip_existing: bool) -> None:
         return
 
     results = []
-    async with httpx.AsyncClient(verify=False) as client:  # BIS site sometimes has cert issues
-        with Progress(
-            SpinnerColumn(),
-            TextColumn("[progress.description]{task.description:<45}"),
-            BarColumn(bar_width=20),
-            TextColumn("{task.fields[status]}"),
-        ) as progress:
-            tasks = {}
-            for fname, url, dtype in DOCUMENTS:
-                tid = progress.add_task(fname[:44], total=1, status="waiting")
-                tasks[fname] = (tid, url, dtype)
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description:<45}"),
+        BarColumn(bar_width=20),
+        TextColumn("{task.fields[status]}"),
+    ) as progress:
+        tasks = {}
+        for fname, url, dtype in DOCUMENTS:
+            tid = progress.add_task(fname[:44], total=1, status="waiting")
+            tasks[fname] = (tid, url, dtype)
 
-            for fname, (tid, url, dtype) in tasks.items():
-                progress.update(tid, description=fname[:44], status="[cyan]downloading[/cyan]")
-                result = await download_one(
-                    client, fname, url, dtype, skip_existing, dry_run
-                )
-                results.append(result)
+        for fname, (tid, url, dtype) in tasks.items():
+            progress.update(tid, description=fname[:44], status="[cyan]downloading[/cyan]")
+            result = await download_one(
+                fname, url, dtype, skip_existing, dry_run
+            )
+            results.append(result)
 
-                status_str = {
-                    "ok": f"[green]✓ {result['size'] // 1024}KB[/green]",
-                    "html_fallback": f"[yellow]saved as HTML ({result.get('fallback_file', '')})[/yellow]",
-                    "skipped": "[yellow]skipped (exists)[/yellow]",
-                    "not_found": "[red]404 not found[/red]",
-                    "error": f"[red]✗ {result['error'][:30]}[/red]",
-                }.get(result["status"], result["status"])
+            status_str = {
+                "ok": f"[green]✓ {result['size'] // 1024}KB[/green]",
+                "html_fallback": f"[yellow]saved as HTML ({result.get('fallback_file', '')})[/yellow]",
+                "skipped": "[yellow]skipped (exists)[/yellow]",
+                "not_found": "[red]404 not found[/red]",
+                "error": f"[red]✗ {result['error'][:30]}[/red]",
+            }.get(result["status"], result["status"])
 
-                progress.update(tid, completed=1, status=status_str)
+            progress.update(tid, completed=1, status=status_str)
 
     # Summary (html_fallback = saved HTML when PDF failed, still usable for RAG)
     ok = [r for r in results if r["status"] == "ok"]

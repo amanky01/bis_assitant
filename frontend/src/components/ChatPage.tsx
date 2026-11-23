@@ -357,7 +357,7 @@ export default function ChatPage() {
                 <span className="text-sm text-gray-400 truncate max-w-[120px]">{email}</span>
                 <button
                   type="button"
-                  onClick={logout}
+                  onClick={() => void logout().catch((err: Error) => setError(err.message))}
                   className="px-3 py-1.5 rounded-lg text-sm text-gray-400 hover:bg-bis-red/20 hover:text-bis-red-light transition-colors"
                 >
                   Logout

@@ -17,6 +17,8 @@ Sliding window:
 """
 from __future__ import annotations
 
+import hashlib
+import secrets
 import uuid
 from datetime import datetime, timedelta, timezone
 from typing import Any
@@ -25,11 +27,9 @@ from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
 
 from app.core.config import get_settings
 from app.core.exceptions import SessionNotFoundError
-from app.core.logging import get_logger
 from app.db.mongo import MongoDB
 from app.schemas.chat import MessageRole
 
-logger = get_logger(__name__)
 settings = get_settings()
 
 
@@ -41,12 +41,13 @@ class SessionService:
         self,
         user_id: str | None = None,
         metadata: dict[str, Any] | None = None,
-    ) -> str:
+    ) -> tuple[str, str | None]:
         """
         Create session. Anonymous → TTL expires_at set.
         Authenticated → expires_at None (persistent).
         """
         session_id = str(uuid.uuid4())
+        guest_token = None if user_id else secrets.token_urlsafe(32)
         now = datetime.now(timezone.utc)
         expires_at = (
             None if user_id
@@ -56,14 +57,32 @@ class SessionService:
         await MongoDB.col(settings.col_sessions).insert_one({
             "session_id": session_id,
             "user_id": user_id,
+            "guest_token_hash": self._guest_hash(guest_token) if guest_token else None,
             "created_at": now,
             "updated_at": now,
             "expires_at": expires_at,
             "message_count": 0,
             "metadata": metadata or {},
         })
-        logger.debug(f"Session created: {session_id} (user={user_id})")
-        return session_id
+        return session_id, guest_token
+
+    @staticmethod
+    def _guest_hash(token: str) -> str:
+        return hashlib.sha256(token.encode()).hexdigest()
+
+    async def get_authorized_session(
+        self, session_id: str, user_id: str | None, guest_token: str | None
+    ) -> dict[str, Any]:
+        query: dict[str, Any] = {"session_id": session_id, "user_id": user_id}
+        if user_id is None:
+            if not guest_token or len(guest_token) > 128:
+                raise SessionNotFoundError("Session not found or expired")
+            query["guest_token_hash"] = self._guest_hash(guest_token)
+            query["expires_at"] = {"$gt": datetime.now(timezone.utc)}
+        doc = await MongoDB.col(settings.col_sessions).find_one(query)
+        if doc is None:
+            raise SessionNotFoundError("Session not found or expired")
+        return doc
 
     async def get_session(self, session_id: str) -> dict[str, Any]:
         doc = await MongoDB.col(settings.col_sessions).find_one(
@@ -117,6 +136,9 @@ class SessionService:
 
     # ── Messages ──────────────────────────────────────────────────────────────
 
+    async def get_turn_message(self, message_id: str) -> dict | None:
+        return await MongoDB.col(settings.col_messages).find_one({"_id": message_id})
+
     async def save_message(
         self,
         session_id: str,
@@ -124,33 +146,38 @@ class SessionService:
         role: MessageRole,
         content: str,
         metadata: dict[str, Any] | None = None,
+        message_id: str | None = None,
     ) -> None:
-        await MongoDB.col(settings.col_messages).insert_one({
+        session = await self.get_session(session_id)
+        expires_at = session.get("expires_at")
+        collection = MongoDB.col(settings.col_messages)
+        document = {
             "session_id": session_id,
             "user_id": user_id,
+            "expires_at": expires_at,
             "role": role.value,
             "content": content,
             "metadata": metadata or {},
             "created_at": datetime.now(timezone.utc),
-        })
+        }
+        if message_id is not None:
+            document["_id"] = message_id
+        inserted = await collection.insert_one(document)
+        try:
+            await self.get_session(session_id)
+        except SessionNotFoundError:
+            await collection.delete_one({"_id": inserted.inserted_id})
+            raise
 
-    async def get_window(self, session_id: str) -> list[BaseMessage]:
-        """
-        Fetch last N messages as LangChain BaseMessage objects.
-        Fetched latest-first, reversed to chronological.
-
-        We drop the last full exchange (last user + last assistant) so that when
-        we append the current user message in run_agent, the model sees:
-          [ ... prior exchanges ..., HumanMessage(current) ]
-        i.e. the last message is always the current query. This avoids the model
-        echoing the previous reply or confusing which message to answer (no two
-        consecutive user messages). Best practice: context ends with an assistant
-        message (or empty); the only "to answer" message is the current user.
-        """
+    async def get_window(self, session_id: str, exclude_id: str | None = None) -> list[BaseMessage]:
+        """Fetch recent conversation messages in chronological order."""
+        query = {"session_id": session_id}
+        if exclude_id is not None:
+            query["_id"] = {"$ne": exclude_id}
         cursor = (
             MongoDB.col(settings.col_messages)
             .find(
-                {"session_id": session_id},
+                query,
                 {"_id": 0, "role": 1, "content": 1}
             )
             .sort("created_at", -1)
@@ -166,12 +193,6 @@ class SessionService:
                 messages.append(HumanMessage(content=content))
             elif m["role"] == MessageRole.ASSISTANT.value:
                 messages.append(AIMessage(content=content))
-        # Drop the last exchange (last assistant, then last user) so we don't send
-        # the previous Q&A; run_agent will append only the current user message.
-        if messages and isinstance(messages[-1], AIMessage):
-            messages.pop()
-        if messages and isinstance(messages[-1], HumanMessage):
-            messages.pop()
         return messages
 
     async def get_full_history(

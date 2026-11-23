@@ -13,6 +13,7 @@ export type ToolCallInfo = {
 export type MessageMetadata = {
   tool_calls?: ToolCallInfo[];
   sources?: string[];
+  citations?: { url: string; title: string; section?: string; effective_date?: string; retrieved_at?: string }[];
   processing_time_ms?: number;
 };
 
@@ -49,6 +50,8 @@ export default function ChatMessage({
             <div className="text-sm sm:text-base break-words prose prose-invert max-w-none prose-p:my-2 prose-p:first:mt-0 prose-p:last:mb-0 prose-ul:my-2 prose-ol:my-2 prose-li:my-0.5 prose-strong:text-white prose-a:text-bis-red-light prose-a:underline prose-a:no-underline hover:prose-a:underline">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
+                urlTransform={(url) => url.startsWith("https://") ? url : ""}
+                disallowedElements={["img"]}
                 components={{
                   a: ({ href, children }) => (
                     <a
@@ -81,7 +84,11 @@ export default function ChatMessage({
                   const path = u.pathname || "/";
                   const fullUrl = u.origin + path + (u.search || "");
                   const label = path === "/" || path === "" ? u.hostname : fullUrl;
-                  return { href, label };
+                  const citation = metadata.citations?.find((item) => item.url === href);
+                  return {
+                    href,
+                    label: citation ? [citation.title, citation.section, citation.effective_date].filter(Boolean).join(" · ") : label,
+                  };
                 } catch {
                   return { href, label: raw.replace(/^https?:\/\//i, "").slice(0, 80) };
                 }

@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from dotenv import load_dotenv
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
-import motor.motor_asyncio
+from pymongo import AsyncMongoClient
 
 async def check():
     uri = os.getenv("MONGO_URI") or os.getenv("MONGODB_URI")
@@ -19,7 +19,7 @@ async def check():
         print("MONGO_URI / MONGODB_URI not set")
         return
 
-    client = motor.motor_asyncio.AsyncIOMotorClient(uri)
+    client = AsyncMongoClient(uri)
     db = client[db_name]
 
     # Check one doc (Hallmark or any)
@@ -29,7 +29,7 @@ async def check():
 
     if not doc:
         print("COLLECTION IS EMPTY")
-        client.close()
+        await client.close()
         return
 
     emb = doc.get("embedding")
@@ -44,7 +44,7 @@ async def check():
     print(f"Total docs: {count}")
     print(f"Docs with embedding field: {count_with_emb}")
 
-    client.close()
+    await client.close()
 
 if __name__ == "__main__":
     asyncio.run(check())

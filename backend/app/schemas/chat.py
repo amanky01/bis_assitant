@@ -44,9 +44,18 @@ class UnverifiedItem(BaseModel):
     reason: str
 
 
+class Citation(BaseModel):
+    url: str
+    title: str
+    section: str | None = None
+    effective_date: str | None = None
+    retrieved_at: str | None = None
+
+
 class ResponseMetadata(BaseModel):
     tool_calls: list[ToolCallRecord] = Field(default_factory=list)
     sources: list[str] = Field(default_factory=list)
+    citations: list[Citation] = Field(default_factory=list)
     unverified: list[UnverifiedItem] = Field(default_factory=list)
     iterations_used: int = 0
     hit_max_iterations: bool = False
@@ -63,6 +72,7 @@ class SessionResponse(BaseModel):
     session_id: str
     created_at: datetime
     expires_at: datetime | None   # None for authenticated sessions
+    guest_token: str | None = None  # Only returned at creation
 
 
 # ── Message schemas ───────────────────────────────────────────────────────────

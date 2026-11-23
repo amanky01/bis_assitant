@@ -9,9 +9,7 @@ from __future__ import annotations
 
 from langchain_core.tools import tool
 
-from app.core.logging import get_logger
 
-logger = get_logger(__name__)
 
 # Static compliance guides — covers the most common product categories.
 # The agent can supplement with vector search + web RAG for rare categories.
@@ -129,7 +127,6 @@ async def get_compliance_guide(product_type: str) -> str:
     # Match to a guide category
     for category, keywords in _KEYWORDS.items():
         if any(kw in product_lower for kw in keywords):
-            logger.debug(f"Compliance guide: '{product_type}' → {category}")
             return _GUIDES[category].strip()
 
     return _GUIDES["default"].strip()

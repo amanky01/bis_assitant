@@ -18,9 +18,9 @@ Pipeline:
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import asyncio
 import hashlib
-import io
 import json
 import re
 import sys
@@ -35,6 +35,7 @@ from dotenv import load_dotenv
 load_dotenv(PROJECT_ROOT / ".env")
 
 from app.core.config import get_settings
+from app.core.official_http import fetch_official
 from app.data.chunking import (
     clean_text,
     chunk_text,
@@ -43,11 +44,6 @@ from app.data.chunking import (
     extract_is_number,
 )
 
-try:
-    import httpx
-except ImportError:
-    print("ERROR: pip install httpx")
-    sys.exit(1)
 try:
     import trafilatura
 except ImportError:
@@ -73,17 +69,8 @@ def url_slug(url: str, length: int = 8) -> str:
     return hashlib.sha256(url.encode()).hexdigest()[:length]
 
 
-def is_allowed_url(url: str, allowed_domains: list[str]) -> bool:
-    try:
-        p = urlparse(url)
-        if p.scheme not in ("http", "https") or not p.netloc:
-            return False
-        host = p.netloc.lower().lstrip("www.")
-        if any(host == d or host.endswith("." + d) for d in allowed_domains):
-            return not SKIP_PATH_PATTERNS.search(url)
-    except Exception:
-        pass
-    return False
+def is_allowed_url(url: str) -> bool:
+    return get_settings().is_domain_allowed(url) and not SKIP_PATH_PATTERNS.search(url)
 
 
 def normalize_url(url: str, current_base: str) -> str:
@@ -92,52 +79,36 @@ def normalize_url(url: str, current_base: str) -> str:
     return f"{p.scheme}://{p.netloc}{p.path}" if p.path else f"{p.scheme}://{p.netloc}/"
 
 
-def get_robots_parser(domain: str, scheme: str = "https") -> RobotFileParser:
-    rp = RobotFileParser()
-    rp.set_url(f"{scheme}://{domain}/robots.txt")
+async def get_robots_parser(domain: str) -> RobotFileParser:
+    rp = RobotFileParser(f"https://{domain}/robots.txt")
     try:
-        rp.read()
+        body, _ = await fetch_official(rp.url, allow_redirects=True, max_bytes=250_000)
+        rp.parse(body.decode(errors="replace").splitlines())
     except Exception:
-        pass
+        # A failed robots lookup prevents crawling this host.
+        rp.disallow_all = True
     return rp
 
 
 async def fetch_html(url: str) -> tuple[str, str]:
-    """Fetch HTML with Playwright, return (raw_html, final_url)."""
-    from playwright.async_api import async_playwright
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        page = await browser.new_page(user_agent=USER_AGENT)
-        await page.goto(url, wait_until="domcontentloaded", timeout=20000)
-        await page.wait_for_timeout(1500)
-        html = await page.content()
-        final_url = page.url
-        await browser.close()
-    return html, final_url
+    body, final_url = await fetch_official(url, allow_redirects=True)
+    return body.decode(errors="replace"), final_url
 
 
 async def fetch_pdf(url: str) -> str:
-    """Fetch PDF and extract text with PyMuPDF."""
     import fitz
-    async with httpx.AsyncClient(timeout=20.0, follow_redirects=True) as client:
-        resp = await client.get(url, headers={"User-Agent": USER_AGENT})
-        resp.raise_for_status()
-        if "pdf" not in (resp.headers.get("content-type") or "").lower() and not url.lower().endswith(".pdf"):
-            raise ValueError("Not a PDF")
-        doc = fitz.open(stream=io.BytesIO(resp.content), filetype="pdf")
-        parts = []
-        for i in range(min(len(doc), 15)):
-            t = doc[i].get_text()
-            if t.strip():
-                parts.append(t)
-        doc.close()
-        text = "\n\n".join(parts)
+
+    body, _ = await fetch_official(url, allow_redirects=True, max_bytes=8_000_000)
+    if not body.startswith(b"%PDF-"):
+        raise ValueError("Official source did not return a PDF")
+    with fitz.open(stream=body, filetype="pdf") as doc:
+        text = "\n\n".join(doc[i].get_text() for i in range(min(len(doc), 15)))
     text = re.sub(r"\n{3,}", "\n\n", text)
     text = re.sub(r"[ \t]{2,}", " ", text)
     return text[:5000]
 
 
-def extract_links(html: str, base_url: str, allowed_domains: list[str]) -> list[str]:
+def extract_links(html: str, base_url: str) -> list[str]:
     from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "lxml")
     links = []
@@ -146,7 +117,7 @@ def extract_links(html: str, base_url: str, allowed_domains: list[str]) -> list[
         if not href or href.startswith("#") or href.startswith("javascript:"):
             continue
         full = normalize_url(href, base_url)
-        if is_allowed_url(full, allowed_domains):
+        if is_allowed_url(full):
             links.append(full)
     return list(dict.fromkeys(links))
 
@@ -180,6 +151,7 @@ def page_to_chunks(title: str, body: str, source_url: str) -> list[dict]:
     slug = url_slug(source_url)
     doc_category = detect_category(body[:3000])
     records = []
+    retrieved_at = datetime.now(timezone.utc).isoformat()
     for i, chunk in enumerate(chunks):
         cat = detect_category(chunk) if i > 0 else doc_category
         chunk_title = f"{title} — Part {i + 1} [{slug}]" if len(chunks) > 1 else f"{title} [{slug}]"
@@ -187,6 +159,7 @@ def page_to_chunks(title: str, body: str, source_url: str) -> list[dict]:
             "title": chunk_title,
             "content": chunk,
             "source": source_url,
+            "retrieved_at": retrieved_at,
             "category": cat,
             "is_number": extract_is_number(chunk),
             "tags": detect_tags(chunk, cat),
@@ -196,7 +169,6 @@ def page_to_chunks(title: str, body: str, source_url: str) -> list[dict]:
 
 async def crawl(
     seed_urls: list[str],
-    allowed_domains: list[str],
     delay_sec: float,
     max_pages: int,
     max_chunks: int,
@@ -211,13 +183,13 @@ async def crawl(
     while queue and len(visited) < max_pages and total_chunks < max_chunks:
         url = queue.pop(0)
         url_norm = normalize_url(url, url)
-        if url_norm in visited:
+        if url_norm in visited or not is_allowed_url(url_norm):
             continue
         visited.add(url_norm)
 
         domain = urlparse(url_norm).netloc
         if domain not in robots_cache:
-            robots_cache[domain] = get_robots_parser(domain)
+            robots_cache[domain] = await get_robots_parser(domain)
         if not robots_cache[domain].can_fetch(USER_AGENT, url_norm):
             continue
 
@@ -245,7 +217,7 @@ async def crawl(
                 records = page_to_chunks(title, body, final_url or url_norm)
                 if final_url and final_url != url_norm:
                     visited.add(final_url)
-                links = extract_links(html, final_url or url_norm, allowed_domains)
+                links = extract_links(html, final_url or url_norm)
                 for link in links:
                     if link not in visited and link not in queue:
                         queue.append(link)
@@ -291,14 +263,14 @@ def main() -> None:
             "https://www.manakonline.in/",
             "https://crsbis.in/",
         ]
-    seed_urls = [u for u in seed_urls if is_allowed_url(u, allowed_domains)]
+    seed_urls = [u for u in seed_urls if is_allowed_url(u)]
     if not seed_urls:
         print("No seed URLs allowed by allowed_domains.", file=sys.stderr)
         sys.exit(1)
 
     print(f"Crawling up to {args.max_pages} pages, {args.max_chunks} chunks, delay={args.delay}s")
     print(f"Seeds: {len(seed_urls)} | Domains: {', '.join(allowed_domains[:4])}…")
-    asyncio.run(crawl(seed_urls, allowed_domains, args.delay, args.max_pages, args.max_chunks, args.output))
+    asyncio.run(crawl(seed_urls, args.delay, args.max_pages, args.max_chunks, args.output))
 
 
 if __name__ == "__main__":

@@ -1,41 +1,25 @@
-"""
-app/api/v1/deps.py
-───────────────────
-FastAPI dependency functions.
+from fastapi import Header, HTTPException, Request
 
-get_optional_user:
-  - Reads Authorization: Bearer <token> header
-  - If present and valid → returns user_id str
-  - If absent or invalid → returns None (anonymous)
-  - Never raises — auth is optional everywhere
-"""
-from __future__ import annotations
-
-from fastapi import Header
-from typing import Optional
-
-from app.core.security import decode_token
 from app.core.exceptions import AuthError
-from app.core.logging import get_logger
+from app.core.security import decode_token
 
-logger = get_logger(__name__)
+AUTH_COOKIE = "bis_access"
 
 
 async def get_optional_user(
-    authorization: Optional[str] = Header(default=None)
+    request: Request, authorization: str | None = Header(default=None)
 ) -> str | None:
-    """
-    Returns user_id if a valid JWT is present, None otherwise.
-    Anonymous requests pass through without error.
-    """
-    if not authorization:
+    token = request.cookies.get(AUTH_COOKIE)
+    if authorization is not None:
+        scheme, _, token = authorization.partition(" ")
+        if scheme.lower() != "bearer" or not token:
+            raise HTTPException(401, "Invalid credentials")
+    if not token:
         return None
-    if not authorization.startswith("Bearer "):
-        return None
-    token = authorization.removeprefix("Bearer ").strip()
     try:
-        payload = decode_token(token)
-        return payload.get("sub")
-    except AuthError:
-        # Invalid token — treat as anonymous
-        return None
+        subject = decode_token(token)["sub"]
+        if not isinstance(subject, str) or not subject:
+            raise ValueError("Missing subject")
+        return subject
+    except (AuthError, KeyError, ValueError):
+        raise HTTPException(401, "Invalid or expired credentials") from None

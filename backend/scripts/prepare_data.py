@@ -223,6 +223,8 @@ def main() -> None:
     parser.add_argument("--overlap", type=int, default=DEFAULT_CHUNK_OVERLAP)
     parser.add_argument("--preview", action="store_true", help="Print first chunk of each doc")
     parser.add_argument("--include-crawled", action="store_true", help="Merge data/crawled_knowledge.json from crawl_bis_sites.py")
+    parser.add_argument("--release-output", type=Path,
+                        help="Write a candidate using only curated and crawled official sources")
     args = parser.parse_args()
 
     console.rule("[bold]BIS Data Preparation[/bold]")
@@ -251,6 +253,23 @@ def main() -> None:
             console.print(f"Loaded [bold]{len(crawled_records)}[/bold] crawled BIS knowledge chunks")
         except Exception as e:
             console.print(f"[yellow]Could not load crawled knowledge: {e}[/yellow]")
+
+    if args.release_output:
+        from app.core.config import get_settings
+
+        settings = get_settings()
+        records = curated_records + crawled_records
+        official = [r for r in records if settings.is_domain_allowed(r.get("source") or "")]
+        if not official:
+            raise SystemExit("No curated or crawled records have official HTTPS sources")
+        with args.release_output.open("x", encoding="utf-8") as output:
+            json.dump(official, output, ensure_ascii=False, indent=2)
+        console.print(
+            f"Wrote {len(official)} official-source chunks to {args.release_output}. "
+            f"Excluded {len(records) - len(official)} curated/crawled chunks without official URLs. "
+            "Raw local files were omitted."
+        )
+        return
 
     if not pdfs and not htmls and not curated_records and not crawled_records:
         console.print(f"\n[yellow]No files found in data/raw/, no curated data, and no crawled data.[/yellow]")

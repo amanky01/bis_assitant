@@ -24,15 +24,15 @@ Modern chat UI for the BIS Assistant API (Next.js, TypeScript, Tailwind CSS).
    ```bash
    cp .env.local.example .env.local
    ```
-   Edit `.env.local` and set `NEXT_PUBLIC_API_URL` to your backend (e.g. `http://localhost:8000`).
+   Edit `.env.local` and set `BIS_BACKEND_URL` to your backend (e.g. `http://localhost:8000`).
 
 2. Install and run:
    ```bash
-   npm install
+   npm ci
    npm run dev
    ```
    Open [http://localhost:3000](http://localhost:3000).
 
 ## Backend
 
-Ensure the FastAPI backend is running and CORS allows `http://localhost:3000`. See backend `.env` for `CORS_ORIGINS`.
+The browser uses the frontend origin for API calls and HttpOnly login cookies. Next.js forwards API traffic to `BIS_BACKEND_URL`. Set this variable before building for deployment.

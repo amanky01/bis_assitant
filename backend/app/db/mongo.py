@@ -1,16 +1,17 @@
 """
 app/db/mongo.py
 ────────────────
-Singleton async MongoDB client (Motor).
+Singleton async PyMongo client.
 All indexes are created here — idempotent, safe to run on every startup.
 
 Atlas vector search index for bis_knowledge must be created manually
-in the Atlas UI or via the seed script (cannot be done via Motor).
+in the Atlas UI.
 """
 from __future__ import annotations
 
-import motor.motor_asyncio
-from pymongo import ASCENDING, DESCENDING, TEXT
+from pymongo import ASCENDING, DESCENDING, TEXT, AsyncMongoClient
+from pymongo.asynchronous.collection import AsyncCollection
+from pymongo.asynchronous.database import AsyncDatabase
 from pymongo.errors import ConfigurationError, ConnectionFailure
 
 from app.core.config import get_settings
@@ -22,15 +23,15 @@ settings = get_settings()
 
 
 class MongoDB:
-    _client: motor.motor_asyncio.AsyncIOMotorClient | None = None
-    _db: motor.motor_asyncio.AsyncIOMotorDatabase | None = None
+    _client: AsyncMongoClient | None = None
+    _db: AsyncDatabase | None = None
 
     @classmethod
     async def connect(cls) -> None:
         if cls._client:
             return
         try:
-            cls._client = motor.motor_asyncio.AsyncIOMotorClient(
+            cls._client = AsyncMongoClient(
                 settings.mongodb_uri,
                 serverSelectionTimeoutMS=5000,
                 maxPoolSize=20,
@@ -40,24 +41,25 @@ class MongoDB:
             cls._db = cls._client[settings.mongodb_db_name]
             logger.info(f"MongoDB connected → {settings.mongodb_db_name}")
         except (ConnectionFailure, ConfigurationError) as exc:
-            raise DatabaseError(f"MongoDB connection failed: {exc}") from exc
+            await cls.disconnect()
+            raise DatabaseError("MongoDB connection failed") from exc
 
     @classmethod
     async def disconnect(cls) -> None:
         if cls._client:
-            cls._client.close()
+            await cls._client.close()
             cls._client = None
             cls._db = None
             logger.info("MongoDB disconnected")
 
     @classmethod
-    def get_db(cls) -> motor.motor_asyncio.AsyncIOMotorDatabase:
+    def get_db(cls) -> AsyncDatabase:
         if cls._db is None:
             raise DatabaseError("MongoDB not connected. Call connect() first.")
         return cls._db
 
     @classmethod
-    def col(cls, name: str) -> motor.motor_asyncio.AsyncIOMotorCollection:
+    def col(cls, name: str) -> AsyncCollection:
         return cls.get_db()[name]
 
     @classmethod
@@ -92,6 +94,13 @@ class MongoDB:
             [("user_id", ASCENDING), ("created_at", DESCENDING)],
             name="idx_messages_user",
             sparse=True,
+        )
+
+        await db[settings.col_messages].create_index(
+            "expires_at", expireAfterSeconds=0, name="idx_messages_ttl"
+        )
+        await db["request_limits"].create_index(
+            "expires_at", expireAfterSeconds=0, name="idx_request_limits_ttl"
         )
 
         # ── is_standards ───────────────────────────────────────────────

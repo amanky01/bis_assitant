@@ -1,23 +1,19 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-const API_V1 = `${API_URL}/api/v1`;
+const API_V1 = "/api/v1";
+const guestTokens = new Map<string, string>();
 
-function getToken(): string | null {
-  if (typeof window === "undefined") return null;
-  return localStorage.getItem("bis_token");
-}
-
-function getAuthHeaders(): HeadersInit {
-  const token = getToken();
-  const headers: HeadersInit = { "Content-Type": "application/json" };
-  if (token) (headers as Record<string, string>)["Authorization"] = `Bearer ${token}`;
+function getAuthHeaders(sessionId?: string): Record<string, string> {
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+    "X-BIS-Client": "web",
+  };
+  const guestToken = sessionId ? guestTokens.get(sessionId) : undefined;
+  if (guestToken) headers["X-Guest-Token"] = guestToken;
   return headers;
 }
 
 // ─── Auth ───────────────────────────────────────────────────────────────────
 
-export type TokenResponse = {
-  access_token: string;
-  token_type: string;
+export type AuthUser = {
   user_id: string;
   email: string;
 };
@@ -25,15 +21,15 @@ export type TokenResponse = {
 export async function register(
   email: string,
   password: string
-): Promise<TokenResponse> {
+): Promise<AuthUser> {
   const res = await fetch(`${API_V1}/auth/register`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: getAuthHeaders(),
     body: JSON.stringify({ email, password }),
   });
   if (!res.ok) {
     const d = await res.json().catch(() => ({}));
-    throw new Error((d.detail as string) || "Registration failed");
+    throw new Error(typeof d.detail === "string" ? d.detail : d.detail?.[0]?.msg || "Registration failed");
   }
   return res.json();
 }
@@ -41,15 +37,15 @@ export async function register(
 export async function login(
   email: string,
   password: string
-): Promise<TokenResponse> {
+): Promise<AuthUser> {
   const res = await fetch(`${API_V1}/auth/login`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: getAuthHeaders(),
     body: JSON.stringify({ email, password }),
   });
   if (!res.ok) {
     const d = await res.json().catch(() => ({}));
-    throw new Error((d.detail as string) || "Login failed");
+    throw new Error(typeof d.detail === "string" ? d.detail : "Login failed");
   }
   return res.json();
 }
@@ -60,6 +56,7 @@ export type SessionResponse = {
   session_id: string;
   created_at: string;
   expires_at: string | null;
+  guest_token?: string | null;
 };
 
 export async function createSession(metadata?: Record<string, unknown>): Promise<SessionResponse> {
@@ -69,12 +66,14 @@ export async function createSession(metadata?: Record<string, unknown>): Promise
     body: JSON.stringify({ metadata: metadata ?? {} }),
   });
   if (!res.ok) throw new Error("Failed to create session");
-  return res.json();
+  const session: SessionResponse = await res.json();
+  if (session.guest_token) guestTokens.set(session.session_id, session.guest_token);
+  return session;
 }
 
 export async function getSession(sessionId: string): Promise<SessionResponse> {
   const res = await fetch(`${API_V1}/chat/sessions/${sessionId}`, {
-    headers: getAuthHeaders(),
+    headers: getAuthHeaders(sessionId),
   });
   if (!res.ok) throw new Error("Session not found or expired");
   return res.json();
@@ -83,9 +82,10 @@ export async function getSession(sessionId: string): Promise<SessionResponse> {
 export async function endSession(sessionId: string): Promise<void> {
   const res = await fetch(`${API_V1}/chat/sessions/${sessionId}`, {
     method: "DELETE",
-    headers: getAuthHeaders(),
+    headers: getAuthHeaders(sessionId),
   });
   if (!res.ok) throw new Error("Failed to end session");
+  guestTokens.delete(sessionId);
 }
 
 // ─── History (authenticated only) ────────────────────────────────────────────
@@ -101,7 +101,7 @@ export async function getSessionHistory(
   sessionId: string
 ): Promise<HistoryMessage[]> {
   const res = await fetch(`${API_V1}/chat/sessions/${sessionId}/history`, {
-    headers: getAuthHeaders(),
+    headers: getAuthHeaders(sessionId),
   });
   if (!res.ok) throw new Error("Failed to load history");
   return res.json();
@@ -143,81 +143,72 @@ export function streamMessage(
   onDone: () => void,
   onError: (err: string) => void
 ): () => void {
-  const token = getToken();
-  const headers: HeadersInit = { "Content-Type": "application/json" };
-  if (token) (headers as Record<string, string>)["Authorization"] = `Bearer ${token}`;
-
   const controller = new AbortController();
-  fetch(`${API_V1}/chat/sessions/${sessionId}/message`, {
-    method: "POST",
-    headers,
-    body: JSON.stringify({ session_id: sessionId, message }),
-    signal: controller.signal,
-  })
-    .then(async (res) => {
+
+  async function readStream() {
+    try {
+      const res = await fetch(`${API_V1}/chat/sessions/${sessionId}/message`, {
+        method: "POST",
+        headers: { ...getAuthHeaders(sessionId), "Idempotency-Key": crypto.randomUUID() },
+        body: JSON.stringify({ session_id: sessionId, message }),
+        signal: controller.signal,
+      });
       if (!res.ok) {
-        const d = await res.json().catch(() => ({}));
-        onError((d.detail as string) || "Request failed");
-        return;
+        const body = await res.json().catch(() => ({}));
+        throw new Error(typeof body.detail === "string" ? body.detail : "Request failed");
       }
       const reader = res.body?.getReader();
-      if (!reader) {
-        onError("No response body");
-        return;
-      }
-      const dec = new TextDecoder();
+      if (!reader) throw new Error("No response body");
+
+      const decoder = new TextDecoder();
       let buffer = "";
       try {
         while (true) {
           const { done, value } = await reader.read();
-          if (done) break;
-          buffer += dec.decode(value, { stream: true });
-          const lines = buffer.split("\n\n");
-          buffer = lines.pop() ?? "";
-          for (const line of lines) {
-            if (line.startsWith("data: ")) {
-              try {
-                const chunk = JSON.parse(line.slice(6)) as StreamChunk;
-                onChunk(chunk);
-                if (chunk.type === "error") onError(chunk.content);
-                if (chunk.type === "done" || chunk.type === "error") onDone();
-              } catch {
-                // skip malformed
-              }
+          buffer += decoder.decode(value, { stream: !done });
+          const frames = buffer.split("\n\n");
+          buffer = frames.pop() ?? "";
+          if (done && buffer) frames.push(buffer);
+          for (const frame of frames) {
+            if (!frame.startsWith("data: ")) continue;
+            let chunk: StreamChunk;
+            try {
+              chunk = JSON.parse(frame.slice(6)) as StreamChunk;
+            } catch {
+              continue;
             }
-          }
-        }
-        if (buffer.startsWith("data: ")) {
-          try {
-            const chunk = JSON.parse(buffer.slice(6)) as StreamChunk;
             onChunk(chunk);
-            if (chunk.type === "done" || chunk.type === "error") onDone();
-          } catch {
-            // skip
+            if (chunk.type === "error") throw new Error(chunk.content);
+            if (chunk.type === "done") return;
           }
+          if (done) throw new Error("Connection closed before the response finished.");
         }
-        onDone();
-      } catch (e) {
-        if ((e as Error).name !== "AbortError") onError((e as Error).message);
-        onDone();
+      } finally {
+        await reader.cancel().catch(() => {});
       }
-    })
-    .catch((e) => {
-      onError((e as Error).message);
-      onDone();
-    });
+    } catch (error) {
+      if (!controller.signal.aborted) onError((error as Error).message);
+    } finally {
+      if (!controller.signal.aborted) onDone();
+    }
+  }
 
+  void readStream();
   return () => controller.abort();
 }
 
-export function isLoggedIn(): boolean {
-  return !!getToken();
+export async function getCurrentUser(): Promise<AuthUser | null> {
+  const res = await fetch(`${API_V1}/auth/me`, { cache: "no-store" });
+  if (res.status === 401) return null;
+  if (!res.ok) throw new Error("Could not check your session");
+  return res.json();
 }
 
-export function setToken(token: string): void {
-  if (typeof window !== "undefined") localStorage.setItem("bis_token", token);
-}
-
-export function clearToken(): void {
-  if (typeof window !== "undefined") localStorage.removeItem("bis_token");
+export async function logout(): Promise<void> {
+  const res = await fetch(`${API_V1}/auth/logout`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+  });
+  if (!res.ok) throw new Error("Could not sign out. Try again.");
+  guestTokens.clear();
 }

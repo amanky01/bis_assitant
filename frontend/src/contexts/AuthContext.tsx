@@ -1,12 +1,7 @@
 "use client";
 
 import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
-import {
-  clearToken,
-  isLoggedIn,
-  setToken as persistToken,
-  type TokenResponse,
-} from "@/lib/api";
+import { getCurrentUser, logout as apiLogout, type AuthUser } from "@/lib/api";
 
 type AuthState = {
   email: string | null;
@@ -18,8 +13,8 @@ type AuthState = {
 type AuthContextValue = AuthState & {
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-  setAuthFromToken: (data: TokenResponse) => void;
+  logout: () => Promise<void>;
+  setAuthUser: (data: AuthUser) => void;
 };
 
 const defaultState: AuthState = {
@@ -31,32 +26,10 @@ const defaultState: AuthState = {
 
 const AuthContext = createContext<AuthContextValue | null>(null);
 
-const AUTH_STORAGE_KEY = "bis_auth_user";
-
-function getStoredUser(): { email: string; userId: string } | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw = localStorage.getItem(AUTH_STORAGE_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw) as { email: string; userId: string };
-  } catch {
-    return null;
-  }
-}
-
-function setStoredUser(data: { email: string; userId: string } | null) {
-  if (typeof window === "undefined") return;
-  if (data) localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(data));
-  else localStorage.removeItem(AUTH_STORAGE_KEY);
-}
-
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<AuthState>(defaultState);
 
-  const setAuthFromToken = useCallback((data: TokenResponse) => {
-    persistToken(data.access_token);
-    const user = { email: data.email, userId: data.user_id };
-    setStoredUser(user);
+  const setAuthUser = useCallback((data: AuthUser) => {
     setState({
       email: data.email,
       userId: data.user_id,
@@ -66,38 +39,39 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    const loggedIn = isLoggedIn();
-    const user = getStoredUser();
-    setState((s) => ({
-      ...s,
-      isLoggedIn: loggedIn && !!user,
-      email: user?.email ?? null,
-      userId: user?.userId ?? null,
-      isLoading: false,
-    }));
-  }, []);
+    localStorage.removeItem("bis_token");
+    localStorage.removeItem("bis_auth_user");
+    let active = true;
+    getCurrentUser().then((user) => {
+      if (!active) return;
+      if (user) setAuthUser(user);
+      else setState({ ...defaultState, isLoading: false });
+    }).catch(() => {
+      if (active) setState({ ...defaultState, isLoading: false });
+    });
+    return () => { active = false; };
+  }, [setAuthUser]);
 
   const login = useCallback(
     async (email: string, password: string) => {
       const { login: apiLogin } = await import("@/lib/api");
       const data = await apiLogin(email, password);
-      setAuthFromToken(data);
+      setAuthUser(data);
     },
-    [setAuthFromToken]
+    [setAuthUser]
   );
 
   const register = useCallback(
     async (email: string, password: string) => {
       const { register: apiRegister } = await import("@/lib/api");
       const data = await apiRegister(email, password);
-      setAuthFromToken(data);
+      setAuthUser(data);
     },
-    [setAuthFromToken]
+    [setAuthUser]
   );
 
-  const logout = useCallback(() => {
-    clearToken();
-    setStoredUser(null);
+  const logout = useCallback(async () => {
+    await apiLogout();
     setState({
       email: null,
       userId: null,
@@ -111,7 +85,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     login,
     register,
     logout,
-    setAuthFromToken,
+    setAuthUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

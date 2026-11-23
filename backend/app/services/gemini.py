@@ -16,7 +16,8 @@ import time
 from functools import lru_cache
 from typing import Literal
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_groq import ChatGroq
@@ -39,21 +40,22 @@ def _build_llm(provider: Literal["gemini", "groq"], model: str) -> BaseChatModel
             temperature=s.agent_temperature,
             max_output_tokens=2048,
             streaming=True,
-            convert_system_message_to_human=True,
         )
         logger.info(f"LLM ready (gemini): {model}")
         return llm
     if provider == "groq":
         if not (s.groq_api_key or "").strip():
             raise ValueError("GROQ_API_KEY is required when LLM_PROVIDER=groq")
+        # Groq streaming + LangGraph tool calls often raises APIError
+        # ("Failed to call a function" / failed_generation). Non-streaming is stable.
         llm = ChatGroq(
             model=model,
             groq_api_key=s.groq_api_key,
             temperature=s.agent_temperature,
             max_tokens=2048,
-            streaming=True,
+            streaming=False,
         )
-        logger.info(f"LLM ready (groq): {model}")
+        logger.info(f"LLM ready (groq): {model} (streaming=False for reliable tool use)")
         return llm
     raise ValueError(f"Unknown LLM_PROVIDER: {provider}")
 
@@ -66,7 +68,7 @@ def get_llm() -> BaseChatModel:
 
 class GeminiEmbeddingService:
     """
-    Async wrapper around google-generativeai embed_content.
+    Async wrapper around Google Gen AI embed_content.
 
     Two task types:
       retrieval_query    → used at search time (this class, embed/embed_batch)
@@ -76,7 +78,7 @@ class GeminiEmbeddingService:
     """
 
     def __init__(self) -> None:
-        genai.configure(api_key=settings.gemini_api_key)
+        self._client = genai.Client(api_key=settings.gemini_api_key).aio
         self._model = settings.gemini_embedding_model
         # (expiry_time, vector); dict keeps insertion order for eviction
         self._cache: dict[str, tuple[float, list[float]]] = {}
@@ -94,7 +96,7 @@ class GeminiEmbeddingService:
             return
         now = time.monotonic()
         # Remove expired first
-        expired = [k for k, (exp,) in self._cache.items() if self._ttl > 0 and now >= exp]
+        expired = [k for k, (exp, _) in self._cache.items() if self._ttl > 0 and now >= exp]
         for k in expired:
             del self._cache[k]
         # If still over max, drop oldest (first keys in insertion order)
@@ -115,20 +117,14 @@ class GeminiEmbeddingService:
                 return vec
             del self._cache[k]
         try:
-            result = await asyncio.to_thread(
-                genai.embed_content,
-                model=self._model,
-                content=text,
-                task_type="retrieval_query",
-                output_dimensionality=settings.embedding_dimensions,
-            )
-            vec = result["embedding"]
-            exp = (now + self._ttl) if self._ttl > 0 else 0.0
-            self._cache[k] = (exp, vec)
-            self._evict_if_needed()
+            vec = await embed_content(self._client, text, "RETRIEVAL_QUERY")
+            if self._max_size > 0:
+                exp = (now + self._ttl) if self._ttl > 0 else 0.0
+                self._cache[k] = (exp, vec)
+                self._evict_if_needed()
             return vec
         except Exception as exc:
-            raise EmbeddingError(f"Gemini embed failed for model={self._model}: {exc}") from exc
+            raise EmbeddingError("Gemini embedding request failed") from exc
 
     async def embed_batch(self, texts: list[str]) -> list[list[float]]:
         """Embed multiple query strings concurrently with cache."""
@@ -155,6 +151,23 @@ class GeminiEmbeddingService:
                 _, results[i] = self._cache[k]
 
         return [r for r in results if r is not None]
+
+
+async def embed_content(
+    client, text: str, task: str
+) -> list[float]:
+    result = await client.models.embed_content(
+        model=settings.gemini_embedding_model,
+        contents=text,
+        config=types.EmbedContentConfig(
+            task_type=task,
+            output_dimensionality=settings.embedding_dimensions,
+        ),
+    )
+    vector = result.embeddings[0].values if result.embeddings else None
+    if not vector or len(vector) != settings.embedding_dimensions:
+        raise EmbeddingError("Embedding dimensions did not match the configured index")
+    return vector
 
 
 @lru_cache(maxsize=1)

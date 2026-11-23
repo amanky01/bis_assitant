@@ -36,7 +36,7 @@ class WebSearchError(BISError):
     """Tavily search failed."""
 
 class ScraperError(BISError):
-    """Playwright page scrape failed."""
+    """Official source extraction failed."""
 
 class DomainNotAllowedError(BISError):
     """URL domain not in the allowed whitelist."""

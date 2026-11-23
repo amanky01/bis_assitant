@@ -1,0 +1,11 @@
+*
+!Dockerfile
+!package.json
+!package-lock.json
+!next.config.js
+!next-env.d.ts
+!postcss.config.js
+!tailwind.config.ts
+!tsconfig.json
+!src/
+!src/**

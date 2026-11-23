@@ -3,6 +3,7 @@ app/main.py
 ────────────
 FastAPI application factory with lifespan.
 """
+import asyncio
 import warnings
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
@@ -16,10 +17,12 @@ warnings.filterwarnings(
 )
 
 from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pymongo.errors import ConnectionFailure, ServerSelectionTimeoutError
 
+from app.api.v1.deps import AUTH_COOKIE
 from app.api.v1.auth import router as auth_router
 from app.api.v1.chat import router as chat_router
 from app.core.config import get_settings, merge_cors_origins_with_defaults
@@ -32,6 +35,7 @@ from app.core.exceptions import (
 )
 from app.core.logging import get_logger, setup_logging
 from app.db.mongo import MongoDB
+from app.core.telemetry import RequestTelemetry
 
 settings = get_settings()
 setup_logging(settings.log_level)
@@ -44,12 +48,26 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     try:
         await MongoDB.connect()
         await MongoDB.ensure_indexes()
+        if settings.col_knowledge.startswith("bis_knowledge_"):
+            manifest = await MongoDB.col("corpus_releases").find_one({
+                "collection": settings.col_knowledge, "status": "seeded",
+                "checked_at": {"$type": "date"},
+                "embedding_model": settings.gemini_embedding_model,
+                "dimensions": settings.embedding_dimensions,
+            })
+            if manifest is None:
+                raise RuntimeError("The selected knowledge release has not passed validation")
         logger.info("DB ready ✓")
-    except Exception as e:
-        logger.warning("MongoDB unavailable at startup (app will run; DB operations will fail): %s", e)
-    yield
-    await MongoDB.disconnect()
-    logger.info("BIS Assistant stopped")
+    except Exception as exc:
+        if settings.app_env != "development":
+            await MongoDB.disconnect()
+            raise RuntimeError("MongoDB initialization failed") from None
+        logger.warning("MongoDB initialization failed (%s)", type(exc).__name__)
+    try:
+        yield
+    finally:
+        await MongoDB.disconnect()
+        logger.info("BIS Assistant stopped")
 
 
 def create_app() -> FastAPI:
@@ -63,7 +81,7 @@ def create_app() -> FastAPI:
     )
 
     # ── CORS ──────────────────────────────────────────────────────────────
-    cors_allow = merge_cors_origins_with_defaults(settings.cors_origins)
+    cors_allow = settings.cors_origins if settings.app_env != "development" else merge_cors_origins_with_defaults(settings.cors_origins)
     logger.info("CORS allow_origins: %d host(s) configured", len(cors_allow))
     app.add_middleware(
         CORSMiddleware,
@@ -73,7 +91,33 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
+    @app.middleware("http")
+    async def protect_browser_requests(request: Request, call_next):
+        protected = request.url.path.startswith(("/api/v1/auth/", "/api/v1/chat/"))
+        mutation = request.method in {"POST", "PUT", "PATCH", "DELETE"}
+        browser_request = (
+            AUTH_COOKIE in request.cookies
+            or "origin" in request.headers
+            or "sec-fetch-site" in request.headers
+        )
+        if protected and mutation and browser_request and request.headers.get("x-bis-client") != "web":
+            return JSONResponse(status_code=403, content={"detail": "Browser request rejected"})
+        response = await call_next(request)
+        if protected:
+            response.headers["Cache-Control"] = "no-store"
+        return response
+
+    app.add_middleware(RequestTelemetry)
+
     # ── Exception handlers ────────────────────────────────────────────────
+
+    @app.exception_handler(RequestValidationError)
+    async def _request_validation(req: Request, exc: RequestValidationError):
+        errors = [
+            {key: error[key] for key in ("type", "loc", "msg") if key in error}
+            for error in exc.errors()
+        ]
+        return JSONResponse(status_code=422, content={"detail": errors})
 
     @app.exception_handler(SessionNotFoundError)
     async def _session_not_found(req: Request, exc: SessionNotFoundError):
@@ -89,52 +133,43 @@ def create_app() -> FastAPI:
 
     @app.exception_handler(DatabaseError)
     async def _db_error(req: Request, exc: DatabaseError):
-        logger.error(f"DB error: {exc.message}")
+        logger.warning("Database operation failed")
         return JSONResponse(status_code=503, content={"detail": "Database temporarily unavailable"})
 
     @app.exception_handler(ConnectionFailure)
     @app.exception_handler(ServerSelectionTimeoutError)
     async def _mongo_unreachable(req: Request, exc: Exception):
-        logger.error("MongoDB unreachable: %s", exc)
+        logger.warning("MongoDB unreachable (%s)", type(exc).__name__)
         return JSONResponse(
             status_code=503,
             content={
-                "detail": "Database unreachable. Check network connectivity and MongoDB URI (e.g. DNS, firewall, VPN)."
+                "detail": "Database temporarily unavailable"
             },
         )
 
     @app.exception_handler(BISError)
     async def _bis_error(req: Request, exc: BISError):
-        return JSONResponse(status_code=500, content={"detail": exc.message})
+        return JSONResponse(status_code=500, content={"detail": "Internal server error"})
 
     # ── Routers ───────────────────────────────────────────────────────────
     app.include_router(auth_router, prefix="/api/v1")
     app.include_router(chat_router, prefix="/api/v1")
 
     # ── Health ────────────────────────────────────────────────────────────
-    @app.get("/api/v1/health", tags=["health"])
-    async def health():
-        try:
-            await MongoDB.get_db().command("ping")
-            db_status = "connected"
-        except Exception:
-            db_status = "disconnected"
+    @app.get("/api/v1/health/live", tags=["health"])
+    async def live():
+        return {"status": "ok"}
 
-        return {
-            "status": "ok",
-            "env": settings.app_env,
-            "db": db_status,
-            "llm_provider": settings.llm_provider,
-            "llm": (
-                settings.gemini_model
-                if settings.llm_provider == "gemini"
-                else settings.groq_model
-            ),
-            "embedding": settings.gemini_embedding_model,
-            "agent_max_iterations": settings.agent_max_iterations,
-            "session_window": settings.session_window_size,
-            "allowed_domains": settings.allowed_domains,
-        }
+    @app.get("/api/v1/health", tags=["health"])
+    @app.get("/api/v1/health/ready", tags=["health"])
+    async def ready():
+        try:
+            async with asyncio.timeout(2):
+                await MongoDB.get_db().command("ping")
+        except Exception:
+            return JSONResponse(status_code=503, content={"status": "unavailable", "db": "disconnected"})
+        return {"status": "ok", "db": "connected"}
+
     @app.get("/")
     async def root():
         return {"message": "Welome to BIS Assistant" }

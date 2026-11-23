@@ -45,12 +45,13 @@ class Settings(BaseSettings):
         env_file_encoding="utf-8",
         case_sensitive=False,
         extra="ignore",
+        enable_decoding=False,
     )
 
     # ── App ───────────────────────────────────────────────────────────────
     app_env: Literal["development", "staging", "production"] = "development"
     log_level: str = "INFO"
-    cors_origins: list[str] = Field(default_factory=_default_cors_origins)
+    cors_origins: list[str] = Field(default_factory=list)
 
     # ── MongoDB ───────────────────────────────────────────────────────────
     mongodb_uri: str = Field(..., alias="MONGO_URI")
@@ -70,7 +71,7 @@ class Settings(BaseSettings):
 
     # ── Gemini (API key required for embeddings; also used when LLM_PROVIDER=gemini) ─
     gemini_api_key: str
-    gemini_model: str = "gemini-2.0-flash"
+    gemini_model: str = "gemini-3.6-flash"
     gemini_embedding_model: str = Field(default="models/gemini-embedding-001", alias="GEMINI_EMBEDDING_MODEL")
     embedding_dimensions: int = Field(default=3072, alias="EMBEDDING_DIMENSIONS")
     agent_temperature: float = Field(default=0.2, ge=0.0, le=1.0)
@@ -93,8 +94,11 @@ class Settings(BaseSettings):
 
     # ── Auth ──────────────────────────────────────────────────────────────
     jwt_secret_key: str = "dev-secret-change-in-production"
-    jwt_algorithm: str = "HS256"
-    jwt_expire_minutes: int = 10080  # 7 days
+    jwt_algorithm: Literal["HS256", "HS384", "HS512"] = "HS256"
+    jwt_expire_minutes: int = Field(default=60, ge=1, le=10080)
+    auth_requests_per_minute: int = Field(default=20, ge=1)
+    chat_requests_per_minute: int = Field(default=60, ge=1)
+    agent_timeout_seconds: int = Field(default=75, ge=1, le=180)
 
     # ── Session ───────────────────────────────────────────────────────────
     session_ttl_hours: int = Field(default=2, ge=1, le=24)
@@ -116,6 +120,12 @@ class Settings(BaseSettings):
     # ── Validators ────────────────────────────────────────────────────────
     @model_validator(mode="after")
     def validate_llm_provider(self) -> Self:
+        secret = self.jwt_secret_key.strip()
+        if self.app_env != "development" and (
+            len(secret) < 32 or len(set(secret)) < 12 or secret.startswith("dev-secret")
+        ):
+            raise ValueError("JWT_SECRET_KEY must be a strong generated secret")
+
         if self.llm_provider == "groq" and not (self.groq_api_key or "").strip():
             raise ValueError("GROQ_API_KEY is required when LLM_PROVIDER=groq")
         return self
@@ -148,7 +158,16 @@ class Settings(BaseSettings):
         """Check if a URL belongs to an allowed domain."""
         from urllib.parse import urlparse
         try:
-            host = urlparse(url).hostname or ""
+            parsed = urlparse(url)
+            if (
+                parsed.scheme != "https"
+                or parsed.username is not None
+                or parsed.password is not None
+                or parsed.port not in (None, 443)
+                or any(ord(char) <= 32 or char == chr(92) for char in url)
+            ):
+                return False
+            host = parsed.hostname or ""
             return any(
                 host == d or host.endswith(f".{d}")
                 for d in self.allowed_domains

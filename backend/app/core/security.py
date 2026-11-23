@@ -11,7 +11,8 @@ from datetime import datetime, timedelta, timezone
 from typing import Any
 
 import bcrypt
-from jose import JWTError, jwt
+import jwt
+from jwt import InvalidTokenError
 
 from app.core.config import get_settings
 from app.core.exceptions import AuthError
@@ -59,6 +60,7 @@ def decode_token(token: str) -> dict[str, Any]:
             token,
             settings.jwt_secret_key,
             algorithms=[settings.jwt_algorithm],
+            options={"require": ["exp", "sub"]},
         )
-    except JWTError as exc:
-        raise AuthError(f"Invalid or expired token: {exc}") from exc
+    except InvalidTokenError as exc:
+        raise AuthError("Invalid or expired token") from exc
